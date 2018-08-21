@@ -18,6 +18,7 @@ This tutorial assumes you already have R and RStudio installed.  Once you have l
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
+library(sf)
 ```
 
 
@@ -329,11 +330,32 @@ mpg %>%
 
 ### Mapping
 
+Mapping and GIS can be done well in ggplot.  When ggplot is combined with the `sf` GIS package, many useful GIS and Data Science visualizations can be generated.  Interactive mapps can also be generated. (You may want to investigate the `mapbox` and `leaflet` packages.)  If you're new to GIS I encourage you to learn more from my [Mapping in R](https://rfun.library.duke.edu/map/) resource page.  
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+demo(nc, ask = FALSE, echo = FALSE)
+
+triangle <- nc %>% 
+  filter(NAME == "Durham" |
+           NAME == "Orange" | 
+           NAME == "Wake")
+
+tri_roid <- st_centroid(triangle)
+
+triangle <- cbind(triangle, st_coordinates(tri_roid))
+
+ggplot() +
+  geom_sf(data = nc) +
+  geom_sf(data = triangle, aes(fill = NAME)) +
+  coord_sf(xlim = c(-78, -80), ylim = c(35.2,36.6)) +
+  geom_text(data = triangle, aes(label = NAME, x = X, y = Y), size = 3)
+```
+
 ## Color Scales
 
-## Themes
-
 ## Legends
+
+## Themes
 
 ## Annotations
 
@@ -347,6 +369,10 @@ mpg %>%
 - [Data Visualization](http://socviz.co/): A practical introduction by Kieran Healy
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) by Claus O. Wilke
 
+
+## devtools::sys_info
+
+## Sludge
 
 ```{r}
 library(maps)
@@ -385,7 +411,16 @@ ggplot(data = map_data('county', 'north carolina') %>%
        aes(long, lat)) +
   geom_polygon(aes(group = group, fill = group)) +
   coord_map("albers",  at0 = 45.5, lat1 = 29.5) + 
-  geom_text(aes(label = subregion))
+  geom_text(aes(label = subregion)) 
+
+county_roid <- map_data('county', 'north carolina') %>% 
+         filter(subregion == "durham" | 
+                  subregion == "orange" | 
+                  subregion == "wake")
+#county_sf <- read_sf(county_roid)
+#st_centroid(county_roid)
+
+#class(county_roid)
 ```
 
 
@@ -395,6 +430,127 @@ demo(nc, ask = FALSE, echo = FALSE)
 
 ```{r}
 as_tibble(nc)
-plot_sf(nc)
+plot(st_geometry(nc))
+plot(st_geometry(st_centroid(nc)))
+class(nc)
+
+triangle <- nc %>% 
+  filter(NAME == "Durham" |
+           NAME == "Orange" | 
+           NAME == "Wake")
+
+as_tibble(triangle)
+
+tri_roid <- st_centroid(triangle)
+as_tibble(tri_roid)
+
+ggplot() +
+  geom_sf(data=triangle) +
+  geom_sf(data = tri_roid) +
+  geom_text(data = tri_roid, aes(, label = NAME)) 
 ```
 
+```{r}
+tri_roid %>% 
+  setNames(c("lon", "lat"))
+
+tri_roid
+
+st_coordinates(tri_roid)[,1]
+
+long <- as_tibble(st_coordinates(tri_roid))$X
+lat <- as_tibble(st_coordinates(tri_roid))$Y
+
+tri_roid$long <- as_tibble(st_coordinates(tri_roid))$X
+tri_roid$lat<- as_tibble(st_coordinates(tri_roid))$Y
+as_tibble(tri_roid)
+
+
+ggplot() +
+  geom_sf(data=triangle) +
+  geom_text(data = tri_roid, aes(x = long, y = lat, label = NAME)) 
+```
+
+
+
+```{r}
+demo(nc, ask = FALSE, echo = FALSE)
+```
+
+```{r}
+as_tibble(nc)
+plot(st_geometry(nc))
+plot(st_geometry(st_centroid(nc)))
+class(nc)
+
+triangle <- nc %>% 
+  filter(NAME == "Durham" |
+           NAME == "Orange" | 
+           NAME == "Wake")
+
+tri_roid <- st_centroid(triangle)
+class(tri_roid)
+as_tibble(tri_roid)
+glimpse(tri_roid)
+
+lat_lon <- as_tibble(st_coordinates(tri_roid)) %>% 
+  rename(long_roid = X,
+         lat_roid = Y)
+lat_lon
+class(lat_lon)
+as_tibble(lat_lon)
+glimpse(lat_lon)
+
+ggplot() +
+  geom_sf(data = triangle) +
+  #geom_point(data = lat_lon, aes(x = long_roid, y = lat_roid)) +
+  #geom_text(aes(label = NAME)) 
+  geom_text(aes(label = tri_roid$NAME, x = lat_lon$long_roid, y = lat_lon$lat_roid))
+
+
+plot(st_geometry(tri_roid))
+
+tri_roid$geom[1]
+```
+
+```{r}
+demo(nc, ask = FALSE, echo = FALSE)
+```
+
+```{r}
+
+demo(nc, ask = FALSE, echo = FALSE)
+
+triangle <- nc %>% 
+  filter(NAME == "Durham" |
+           NAME == "Orange" | 
+           NAME == "Wake")
+
+tri_roid <- st_centroid(triangle)
+
+foo <- cbind(triangle, st_coordinates(tri_roid))
+
+ggplot() +
+  geom_sf(data = foo, aes(fill = NAME)) +
+  geom_text(data = foo, aes(label = NAME, x = X, y = Y))
+```
+
+
+
+
+```{r}
+demo(nc, ask = FALSE, echo = FALSE)
+
+triangle <- nc %>% 
+  filter(NAME == "Durham" |
+           NAME == "Orange" | 
+           NAME == "Wake")
+
+#tri_roid <- st_centroid(triangle)
+
+triangle <- cbind(triangle, st_coordinates(st_centroid(triangle)))
+
+ggplot() +
+  geom_sf(data = triangle, aes(fill = NAME)) +
+  geom_text(data = triangle, aes(label = NAME, x = X, y = Y))
+```

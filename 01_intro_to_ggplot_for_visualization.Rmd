@@ -329,7 +329,7 @@ mpg %>%
 
 ### Mapping
 
-## Color Hues
+## Color Scales
 
 ## Themes
 
@@ -341,7 +341,60 @@ mpg %>%
 
 ## Resources
 
-- R for Data Science by Hadley Wickham
+- R for Data Science by Hadley Wickham.  Chapter on _Data Visualization_,  & Chapter on _Graphics for Communication_
 - Intro, Tutorials, and Reference materials by Selva Prabhakaran
 - ggplot cookbook 
+- [Data Visualization](http://socviz.co/): A practical introduction by Kieran Healy
+- [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) by Claus O. Wilke
+
+
+```{r}
+library(maps)
+```
+
+```{r}
+map('county', 'north carolina', fill = TRUE, col = palette()) 
+```
+
+
+```{r}
+# https://ggplot2.tidyverse.org/reference/map_data.html
+carolina <- map_data('county', 'north carolina')
+states <- map_data("state") 
+arrests <- USArrests
+names(arrests) <- tolower(names(arrests))
+arrests$region <- tolower(rownames(USArrests))
+states 
+arrests
+```
+
+
+
+```{r}
+choro <- merge(states, arrests, sort = FALSE, by = "region") %>% 
+  arrange(order)
+
+ggplot(data = choro, aes(long, lat)) +
+  geom_polygon(aes(group = group, fill = assault)) +
+  coord_map("albers",  at0 = 45.5, lat1 = 29.5)
+
+ggplot(data = map_data('county', 'north carolina') %>% 
+         filter(subregion == "durham" | 
+                  subregion == "orange" | 
+                  subregion == "wake"), 
+       aes(long, lat)) +
+  geom_polygon(aes(group = group, fill = group)) +
+  coord_map("albers",  at0 = 45.5, lat1 = 29.5) + 
+  geom_text(aes(label = subregion))
+```
+
+
+```{r}
+demo(nc, ask = FALSE, echo = FALSE)
+```
+
+```{r}
+as_tibble(nc)
+plot_sf(nc)
+```
 

@@ -4,7 +4,7 @@ Date:  "`r Sys.Date()`"
 output: html_notebook
 ---
 
-The outline, explanations, and code examples for this workshop are derived from the work found in the [Data Visualization chapter](http://r4ds.had.co.nz/data-visualisation.html) of Hadley Wickham's book entitled [*R for Data Science*](http://r4ds.had.co.nz/), and Selva Prabhakaran's [short tutorial](http://r-statistics.co/ggplot2-Tutorial-With-R.html) and [Intro](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html).  If you are borrowing or referring to this introduction, Please reference the source material for Wickham or Prabhakaran, as appropriate.  My sole goal with this document is to create and outline for a two hour workshop.  The intellectual work is clearly that of Wickham and/or Prabhakaran.  Solutions to Wickham's questions can be found in Jeffrey Arnold's [R for Data Science Solutions](https://jrnold.github.io/r4ds-exercise-solutions/).
+The outline, explanations, and code examples for this workshop are derived from the work found in the [Data Visualization chapter](http://r4ds.had.co.nz/data-visualisation.html) of Hadley Wickham's book entitled [*R for Data Science*](http://r4ds.had.co.nz/), and Selva Prabhakaran's [short tutorial](http://r-statistics.co/ggplot2-Tutorial-With-R.html) and [Intro](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html).  If you are borrowing or referring to this introduction, please reference the source material for Wickham or Prabhakaran, as appropriate.  My goal with this document is to create and outline for a two hour workshop.  The intellectual work is clearly that of Wickham and/or Prabhakaran.  Solutions to Wickham's questions can be found in Jeffrey Arnold's [R for Data Science Solutions](https://jrnold.github.io/r4ds-exercise-solutions/).
 
 ## Prerequisites
 
@@ -353,11 +353,119 @@ ggplot() +
 
 ## Color Scales
 
+`ggplot` offers several carefully default scales and scales can be used to tweak more than color.   The *Scales* section of the *Graphics for Communication* chapter ([R4DS](http://r4ds.had.co.nz/graphics-for-communication.html)) should be read for understanding.  You can tweak the aethetics for continuous, discrete, datetime, or date variables.  As noted, scales are not always about color. (Scales are also used to change axes breaks, labels and legends.)  
+
+**Color scales are often changed to improve visual clarity.**  Two of the most common packages for this are the `RColorBrewer` and `viridis` packages.  Below the RColorBrewer option is set using the "Dark2" palette on the categorical `mpg$class` variable.  Asside from "Dark2", find the names of other ColorBrewer palette names in many places: `?scale_colour_brewer`, Google, R4DS, etc.
+
+```{r}
+hwy_plot +
+  scale_color_brewer(palette = "Dark2")  
+
+```
+
+Viridis may work better for continuous variables, rather than discrete.  However, below is an example of the viridis package changing the color scale.
+
+```{r}
+hwy_plot +
+  viridis::scale_color_viridis(discrete=TRUE)
+```
+
+Below is another example this time using a continuous variable, `diamonds$price` to demonstrate  color.  The first plot uses the ffplot default.  The second plot uses the virids package to override the default.
+
+```{r}
+ggplot(data = diamonds) +
+  geom_point(mapping = aes(x = carat, y = price, color = price))
+
+ggplot(data = diamonds) +
+  geom_point(mapping = aes(x = carat, y = price, color = price)) +
+  viridis::scale_color_viridis()
+```
+
 ## Legends
 
-## Themes
+You can alter the position or existance of legends.  Positions include "top, bottom, left, right, and none".  
+
+```{r}
+hwy_plot +
+  theme(legend.position = "top")
+```
+
+You can control other apsects of the legend's appearance as well.  Here we control the number of rows displayed with `guide_legend(nrow =1)`
+
+```{r}
+hwy_plot +
+  theme(legend.position = "top") +
+  guides(color = guide_legend(nrow = 1))
+```
+
+
+## Labels:  Scales / Markers / Ticks
+
+```{r}
+hwy_plot +
+  labs(
+    title = "Fuel Efficiency Ratings",
+    subtitle = "Highway mpg as a dependency of Engine Displacement",
+    caption = "Data from www.fueleconomy.gov"
+  )
+```
+
+### Axis & Legend Titles
+
+```{r}
+hwy_plot +
+  labs(
+    x = "Engine displacement (L)",
+    y = "Highway fuel economy (mpg)",
+    colour = "Car type"
+    )
+```
+
+
 
 ## Annotations
+
+While Annotations can help you highlight your data story, the execution of the annotation is a bit persnickety.  *R4DS* recommends the following approach which accomodates requirements for the same x & y variables.  This requirement for sameness in data frame will help draw axes scales within expected limits.  Trust me, it's best to follow the format here.
+
+```{r message=FALSE, warning=FALSE}
+annotation <- mpg %>%
+  summarise(
+    displ = max(displ),
+    hwy = max(hwy),
+    label_text = "Average fuel economy skews higher when\nincluding light-weight two-seater sports cars."
+  )
+
+ggplot(data = mpg, aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) +
+  geom_text(aes(label = label_text), 
+            data = annotation, 
+            vjust = "top", hjust = "right",
+            color = "coral1") 
+```
+
+### Just for Fun
+
+Let's attempt to make the story clearer by adding regression lines.
+
+```{r message=FALSE, warning=FALSE}
+ggplot(data = mpg, aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) +
+  geom_text(aes(label = label_text), 
+            data = annotation, 
+            vjust = "top", hjust = "right",
+            color = "coral1") +
+  geom_smooth(data = mpg %>% filter(class != "2seater"),
+              se = TRUE) +
+  geom_smooth(data = mpg, color = "coral1", se = FALSE, linetype = 2) +
+  labs(
+    title = "Fuel Efficiency Ratings",
+    subtitle = "Dashed line for all car types, Solid line excludes 2seater class",
+    caption = "Data from www.fueleconomy.gov"
+  )
+```
+
+
+## Themes
 
 ## Saving
 

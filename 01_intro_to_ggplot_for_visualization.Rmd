@@ -1,10 +1,13 @@
 ---
 title: "Introduction to ggplot for Visualization"
 Date:  "`r Sys.Date()`"
-output: html_notebook
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
 ---
 
-The outline, explanations, and code examples for this workshop are derived from the work found in the [Data Visualization chapter](http://r4ds.had.co.nz/data-visualisation.html) of Hadley Wickham's book entitled [*R for Data Science*](http://r4ds.had.co.nz/), and Selva Prabhakaran's [short tutorial](http://r-statistics.co/ggplot2-Tutorial-With-R.html) and [Intro](http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html).  If you are borrowing or referring to this introduction, please reference the source material for Wickham or Prabhakaran, as appropriate.  My goal with this document is to create and outline for a two hour workshop.  The intellectual work is clearly that of Wickham and/or Prabhakaran.  Solutions to Wickham's questions can be found in Jeffrey Arnold's [R for Data Science Solutions](https://jrnold.github.io/r4ds-exercise-solutions/).
+The outline, explanations, and code examples for this workshop are derived from the work found in the [Data Visualization chapter](http://r4ds.had.co.nz/data-visualisation.html) of Hadley Wickham's book entitled [*R for Data Science*](http://r4ds.had.co.nz/).  If you are borrowing or referring to this introduction, please reference the source material for Wickham, as appropriate.  My goal with this document is to create and outline for a two hour workshop.  The intellectual work is clearly that of Wickham and/or Prabhakaran.  Solutions to Wickham's questions can be found in Jeffrey Arnold's [R for Data Science Solutions](https://jrnold.github.io/r4ds-exercise-solutions/).
 
 ## Prerequisites
 
@@ -22,7 +25,9 @@ library(sf)
 ```
 
 
-## Basic ggplot Syntax Looks like this
+## Basic syntax 
+
+ggplot syntax template is as follows...
 
 ``` r
 ggplot(data = <DATA>) + 
@@ -61,9 +66,9 @@ mpg
 
 1. Make a scatter plot of `hwy` vs `cyl`. (Question from [R4DS](http://r4ds.had.co.nz/data-visualisation.html#exercises ) | [Solution](https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.2.4.))
 
-## Tweaking
+## Aesthetics / Tweaking
 
-Wickham notes the are some data points that seem to fall outside the linear trend.  We can alter the levels of the aesthetics to test hypothesis about this. 
+Wickham notes there are some data points that seem to fall outside the linear trend.  We can alter the levels of the aesthetics to test hypothesis about this.  This is a reference outline for a workshop so we'll talk about this in the workshop.  
 
 ```{r echo=FALSE}
 ggplot() + 
@@ -78,7 +83,7 @@ ggplot() +
 ```
 
 
-### Aesthetics & Levels
+### Levels
 
 - An **aethetic** is a visual property of objects in the plot.  For example: **shape**, **color**.
 
@@ -104,10 +109,10 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 ```
 
-### Manuall vs Automatic aethetics
+### Manual vs automatic aethetics
 
 - When variables are set inside the `aes()` the levels are assigned dynamically.
-- When the levels are manually set outside the `aes()` but still inside the geom, the levels are static according to the preference of the person writing the code.  Below see:  `color = "blue"` is outside the aesthetic but inside the geom function.
+- When the levels are manually set outside the `aes()`, but still inside the `geom_()`, the levels are static and thereby set according to the preference of the person writing the code.  Below see:  `color = "blue"` is outside the aesthetic but inside the geom function.
 
 ```{r}
 ggplot(data = mpg) + 
@@ -133,7 +138,7 @@ Map a continuous variable to color, size, and shape. How do these aesthetics beh
 
 What happens if you map the same variable to multiple aesthetics? [Soluion](https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.3.4)
 
-### Aethetics Revisited
+### Aethetics revisited
 #### Stroke
 
 Above I noted that there are many different aesthetics including **shape**, **color**, *size*, opacity (*alpha*), and *stroke*.  Let's take a look at `stroke` and note two additional features...
@@ -188,7 +193,7 @@ hwy_plot +
 
 ### Standard Error
 
-Since each geom can have it's unique arguments, consult the documentation to learn how to manipulate the appearance.  Here we can consult `?geom_smooth` and learn how to remove the standared error shading, setting `se = FALSE`.   
+Since each geom can have it's unique arguments, consult the documentation to learn how to manipulate the appearance.  Here we can consult `?geom_smooth` and learn how to remove the standard error shading, setting `se = FALSE`.   
 
 ```{r message=FALSE, warning=FALSE}
 hwy_plot +
@@ -240,7 +245,7 @@ hwy_plot +
 
 ## Statistical Transformations
 
-Some geoms can perform staistical transformations by calculating summary totals for categories.  I find it more logical to use some `dplyr` and `forcats` to generate summary tables but this has to be handled in a special manner when piping to ggplot.  On the other hand, summarizing totals is a convenient default in ggplot for partiular geoms.  Importantly, you need to know how which geom and argument to use for your desired outcome.  
+Some geoms can perform statistical transformations by calculating summary totals for categories.  I find it more logical to use some `dplyr` and `forcats` to generate summary tables but this has to be handled in a special manner when piping to ggplot.  On the other hand, summarizing totals is a convenient default in ggplot for particular geoms.  Importantly, you need to know how which geom and argument to use for your desired outcome.  
 
 ### Bar Plot
 
@@ -248,7 +253,7 @@ In the next sets of examples we will use the on-board dataset, *diamonds*.  Diam
 
 #### Automtic Categorization (totallying the raw numbers)
 
-`geom_bar` & `stat_count` can generally be used interchangable
+`geom_bar` & `stat_count` can generally be used interchangeably
 
 ```{r}
 ggplot(data = diamonds) + 
@@ -301,9 +306,13 @@ ggplot(data = diamonds) +
   geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")
 ```
 
+## Which type of geom_ ?
+
+The ggplot2 cheat sheet -- available from the **H**elp menu inside RStudio can help you biging to choose the appropriate geom for your data.
+
 ## Jitter
 
-To solve the problem of **overplotting**
+`jitter` can help solve the problem of **overplotting**, as can `dodge` discussed above.
 
 ```{r}
 ggplot(data = mpg) + 
@@ -330,7 +339,7 @@ mpg %>%
 
 ### Mapping
 
-Mapping and GIS can be done well in ggplot.  When ggplot is combined with the `sf` GIS package, many useful GIS and Data Science visualizations can be generated.  Interactive mapps can also be generated. (You may want to investigate the `mapbox` and `leaflet` packages.)  If you're new to GIS I encourage you to learn more from my [Mapping in R](https://rfun.library.duke.edu/map/) resource page.  
+Mapping and GIS is supported quite well using `ggplot` combined with the `sf` GIS package.  Interactive maps can also be generated. (You may want to investigate the `mapbox` and `leaflet` packages.)  If you're new to GIS I encourage you to learn more from the [Mapping in R](https://rfun.library.duke.edu/map/) resource page.  
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 demo(nc, ask = FALSE, echo = FALSE)
@@ -348,14 +357,24 @@ ggplot() +
   geom_sf(data = nc) +
   geom_sf(data = triangle, aes(fill = NAME)) +
   coord_sf(xlim = c(-78, -80), ylim = c(35.2,36.6)) +
-  geom_text(data = triangle, aes(label = NAME, x = X, y = Y), size = 3)
+  geom_text(data = triangle, aes(label = NAME, x = X, y = Y), size = 3) +
+  theme(legend.position = "none", 
+        panel.background = element_rect(fill = "transparent"), 
+        panel.grid.major = element_line(color = "transparent"), 
+        axis.text.x = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks = element_blank(),
+        plot.title = element_text(hjust = 0.5)) +
+  ylab("") +
+  xlab("") +
+  ggtitle("Triangle Counties in North Carolina")
 ```
 
 ## Color Scales
 
-`ggplot` offers several carefully default scales and scales can be used to tweak more than color.   The *Scales* section of the *Graphics for Communication* chapter ([R4DS](http://r4ds.had.co.nz/graphics-for-communication.html)) should be read for understanding.  You can tweak the aethetics for continuous, discrete, datetime, or date variables.  As noted, scales are not always about color. (Scales are also used to change axes breaks, labels and legends.)  
+`ggplot` offers several carefully default scales and scales can be used to tweak more than color.   The *Scales* section of the *Graphics for Communication* chapter ([R4DS](http://r4ds.had.co.nz/graphics-for-communication.html)) should be read for understanding.  You can tweak the aesthetics for continuous, discrete, datetime, or date variables.  As noted, scales are not always about color. (Scales are also used to change axes breaks, labels and legends.)  
 
-**Color scales are often changed to improve visual clarity.**  Two of the most common packages for this are the `RColorBrewer` and `viridis` packages.  Below the RColorBrewer option is set using the "Dark2" palette on the categorical `mpg$class` variable.  Asside from "Dark2", find the names of other ColorBrewer palette names in many places: `?scale_colour_brewer`, Google, R4DS, etc.
+**Color scales are often changed to improve visual clarity.**  Two of the most common packages for this are the `RColorBrewer` and `viridis` packages.  Below the RColorBrewer option is set using the "Dark2" palette on the categorical `mpg$class` variable.  Aside from "Dark2", find the names of other ColorBrewer palette names in many places: `?scale_colour_brewer`, Google, R4DS, etc.
 
 ```{r}
 hwy_plot +
@@ -370,7 +389,7 @@ hwy_plot +
   viridis::scale_color_viridis(discrete=TRUE)
 ```
 
-Below is another example this time using a continuous variable, `diamonds$price` to demonstrate  color.  The first plot uses the ffplot default.  The second plot uses the virids package to override the default.
+Below is another example this time using a continuous variable, `diamonds$price` to demonstrate  color.  The first plot uses the ggplot default.  The second plot uses the viridis package to override the default.
 
 ```{r}
 ggplot(data = diamonds) +
@@ -383,14 +402,14 @@ ggplot(data = diamonds) +
 
 ## Legends
 
-You can alter the position or existance of legends.  Positions include "top, bottom, left, right, and none".  
+You can alter the position or existence of legends.  Positions include "top, bottom, left, right, and none".  
 
 ```{r}
 hwy_plot +
   theme(legend.position = "top")
 ```
 
-You can control other apsects of the legend's appearance as well.  Here we control the number of rows displayed with `guide_legend(nrow =1)`
+You can control other aspects of the legend's appearance as well.  Here we control the number of rows displayed with `guide_legend(nrow =1)`
 
 ```{r}
 hwy_plot +
@@ -399,7 +418,9 @@ hwy_plot +
 ```
 
 
-## Labels:  Scales / Markers / Ticks
+## Labels:  Axis / Markers / Ticks
+
+### Titles, Subtiles, and Captions
 
 ```{r}
 hwy_plot +
@@ -421,11 +442,22 @@ hwy_plot +
     )
 ```
 
+### Axis ticks & Breaks
+
+Suppose you want the y axis to be listed in increments of 5 rather than the default.  See below.  **Alternatively, remove the axis lables** with code such as:  
+
+- `scale_x_continuous(labels = NULL)`
+- `scale_y_continuous(labels = NULL)`
+
+```{r}
+hwy_plot +
+  scale_y_continuous(breaks = seq(15, 40, by = 5)) 
+```
 
 
 ## Annotations
 
-While Annotations can help you highlight your data story, the execution of the annotation is a bit persnickety.  *R4DS* recommends the following approach which accomodates requirements for the same x & y variables.  This requirement for sameness in data frame will help draw axes scales within expected limits.  Trust me, it's best to follow the format here.
+While Annotations can help you highlight your data story, the execution of the annotation is a bit persnickety.  *R4DS* recommends the following approach which accommodates requirements for the same x & y variables.  This requirement for sameness in data frame will help draw axes scales within expected limits.  Trust me, it's best to follow the format here.
 
 ```{r message=FALSE, warning=FALSE}
 annotation <- mpg %>%
@@ -461,13 +493,40 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
     title = "Fuel Efficiency Ratings",
     subtitle = "Dashed line for all car types, Solid line excludes 2seater class",
     caption = "Data from www.fueleconomy.gov"
-  )
+  ) 
 ```
 
 
 ## Themes
 
+Using the `theme()` function, you can customize your visualization extensively.  Above, in the **Legends** section we used `theme()` to selectively move the position of the legend.  Beyond that you can alter the appearance of your visualization with several pre-configured themes (See image from the **R4DS** book, below.)  A fuller explanation of themes can be found in *Graphics for communication* chapter of *R for Data Science* by Hadley Wickham. If you like to tweedle, `themes()` is a great function to explore further.  
+
+![](http://r4ds.had.co.nz/images/visualization-themes.png)
+
+
+```{r}
+hwy_plot +
+  theme_bw()
+```
+
+
+### Gridlines
+
+Many people ask about removing gridlines.  At this point let's just say it's easy and there's plenty of documentation on how to do it (e.g. Google, stack exchange, etc.).  The one exception to basic gridline management is when using geom_sf.  See the **Mapping* example above for some rather obscure documentation on how to handle gridlines and axis with `geom_sf()`.
+
+
 ## Saving
+
+`ggsave()` will save your existing visualization to disk.  **However**, when you compose your code using  R Markdown (and `knitr`), you can knit your literate code and integrate your dynamically produced visualizations into your reports, all without separately saving your image to disk.  Read more about [R Markdown](http://r4ds.had.co.nz/r-markdown.html) or browse the [R Markdown support pages](https://rmarkdown.rstudio.com/).
+
+## Extra cool and special extenting packages
+
+- `RColorBrewer` -- highly visible color palettes
+- `viridis` -- like `RColorBrewer`, this is a color scale tool especially tuned to visibility issues for for continuous data
+- `ggrepel` -- adjust labels to prevent overlap
+- **Annimation**:  use `gganimate`to [animate](https://github.com/thomasp85/gganimate) plots with motion
+- **Interactivity**:  use `plotly` to turn your visualization into an interactive, publication-quality, online experience
+- Gallery of other extra cool [ggplot extensions](http://www.ggplot2-exts.org/gallery/)
 
 ## Resources
 
@@ -478,20 +537,34 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) by Claus O. Wilke
 
 
-## devtools::sys_info
+## devtools::session_info
+
+List the packages used to develop this code
+
+```{r}
+devtools::session_info()
+```
+
+
+## Shareable 
+
+Shareable via Creative Commons: [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) -- Attribution, Non-Commercial
+
+![](images/by-nc.png)
+
 
 ## Sludge
 
-```{r}
+```
 library(maps)
 ```
 
-```{r}
+```
 map('county', 'north carolina', fill = TRUE, col = palette()) 
 ```
 
 
-```{r}
+```
 # https://ggplot2.tidyverse.org/reference/map_data.html
 carolina <- map_data('county', 'north carolina')
 states <- map_data("state") 
@@ -504,7 +577,7 @@ arrests
 
 
 
-```{r}
+```
 choro <- merge(states, arrests, sort = FALSE, by = "region") %>% 
   arrange(order)
 
@@ -532,11 +605,11 @@ county_roid <- map_data('county', 'north carolina') %>%
 ```
 
 
-```{r}
+```
 demo(nc, ask = FALSE, echo = FALSE)
 ```
 
-```{r}
+```
 as_tibble(nc)
 plot(st_geometry(nc))
 plot(st_geometry(st_centroid(nc)))
@@ -558,7 +631,7 @@ ggplot() +
   geom_text(data = tri_roid, aes(, label = NAME)) 
 ```
 
-```{r}
+```
 tri_roid %>% 
   setNames(c("lon", "lat"))
 
@@ -581,11 +654,11 @@ ggplot() +
 
 
 
-```{r}
+```
 demo(nc, ask = FALSE, echo = FALSE)
 ```
 
-```{r}
+```
 as_tibble(nc)
 plot(st_geometry(nc))
 plot(st_geometry(st_centroid(nc)))
@@ -621,11 +694,11 @@ plot(st_geometry(tri_roid))
 tri_roid$geom[1]
 ```
 
-```{r}
+```
 demo(nc, ask = FALSE, echo = FALSE)
 ```
 
-```{r}
+```
 
 demo(nc, ask = FALSE, echo = FALSE)
 
@@ -646,7 +719,7 @@ ggplot() +
 
 
 
-```{r}
+```
 demo(nc, ask = FALSE, echo = FALSE)
 
 triangle <- nc %>% 

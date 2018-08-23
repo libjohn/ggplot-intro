@@ -2,9 +2,10 @@
 title: "Introduction to ggplot for Visualization"
 Date:  "`r Sys.Date()`"
 output:
-  html_notebook:
+  html_document:
     toc: yes
     toc_float: yes
+    highlight: tango
 ---
 
 The outline, explanations, and code examples for this workshop are derived from the work found in the [_Data Visualization_ chapter](http://r4ds.had.co.nz/data-visualisation.html) and the [_Graphics for Communication_ chapter](http://r4ds.had.co.nz/graphics-for-communication.html) of Hadley Wickham's [*R for Data Science*](http://r4ds.had.co.nz/).  If you are borrowing or referring to this introduction, please reference the Wickham as the source material.  My goal with this document is to create and outline for a two hour workshop on `ggplot`.  The intellectual work is clearly that of Wickham.  Solutions to Wickham's questions can be found in Jeffrey Arnold's [R for Data Science Solutions](https://jrnold.github.io/r4ds-exercise-solutions/).
@@ -534,7 +535,7 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
 
 Using the `theme()` function, you can customize your visualization extensively.  Above, in the **Legends** section we used `theme()` to selectively move the position of the legend.  Beyond that you can alter the appearance of your visualization with several pre-configured themes. (See image from the **R4DS** book, below.)  A fuller explanation of themes can be found in *Graphics for communication* chapter of *R for Data Science* by Hadley Wickham. If you like to tweedle, `themes()` is a great function to explore further.  
 
-![](http://r4ds.had.co.nz/images/visualization-themes.png)
+!['Themes from _R for Data Science_ by Hadley Wickham'](http://r4ds.had.co.nz/images/visualization-themes.png)
 
 ` theme_bw()`
 
@@ -586,7 +587,7 @@ devtools::session_info()
 
 Shareable via Creative Commons: [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) -- Attribution, Non-Commercial
 
-![](images/by-nc.png)
+![](images/by-nc.png){height=30px}
 
 
 

@@ -10,7 +10,7 @@ output: github_document
 ## ggplot-intro
 for MIDS Fall 2108
 
-A gentle introduction to using ggplot2 as a visualization package.  This presentation is based on the Data Visualization chapter of Hadley Wickham's [*R for Data Science*](http://r4ds.had.co.nz/data-visualisation.html) and Selva Prabhakaran's [short tutorial and Intro](http://r-statistics.co/ggplot2-Tutorial-With-R.html)
+A gentle introduction to using ggplot2 as a visualization package.  This presentation is based on the Data Visualization chapter in Grolemund's & Wickham's [*R for Data Science*](http://r4ds.had.co.nz/data-visualisation.html).
 
-## Shareable via Creative Commons: [CC-BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)<br> !["CC BY-NC"](images/by-nc.png){height=35px}
+
 

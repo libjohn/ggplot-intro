@@ -3,7 +3,7 @@ title: "Workshop: ggplot for Visualization"
 Date:  "`r Sys.Date()`"
 output:
   html_document:
-    self_contained: false
+    #self_contained: false
     toc: yes
     toc_float: yes
     highlight: tango

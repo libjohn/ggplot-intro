@@ -3,12 +3,13 @@ title: "Workshop: ggplot for Visualization"
 Date:  "`r Sys.Date()`"
 output:
   html_document:
+    self_contained: false
     toc: yes
     toc_float: yes
     highlight: tango
 ---
 
-The outline, explanations, and code examples for this workshop are derived from the work found in the [_Data Visualization_ chapter](http://r4ds.had.co.nz/data-visualisation.html) and the [_Graphics for Communication_ chapter](http://r4ds.had.co.nz/graphics-for-communication.html) of Grolemund's and Wickham's [*R for Data Science*](http://r4ds.had.co.nz/).  Please reference Grolemund & Wickham as the source.  My goal with this document is to create and outline for a two hour workshop on `ggplot`.  Solutions to _R4DS_ exercises can be found in Jeffrey Arnold's [R for Data Science Solutions](https://jrnold.github.io/r4ds-exercise-solutions/).
+The outline, explanations, and code examples for this workshop are derived from the work found in the [_Data Visualization_ chapter](http://r4ds.had.co.nz/data-visualisation.html) and the [_Graphics for Communication_ chapter](http://r4ds.had.co.nz/graphics-for-communication.html) of Grolemund's and Wickham's [*R for Data Science*](http://r4ds.had.co.nz/).  Please reference Grolemund & Wickham as the source.  My goal with this document is to create an outline for a two hour workshop on `ggplot`.  Solutions to _R4DS_ exercises can be found in Jeffrey Arnold's [R for Data Science Solutions](https://jrnold.github.io/r4ds-exercise-solutions/).
 
 ## Prerequisites
 

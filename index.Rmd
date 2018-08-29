@@ -3,7 +3,8 @@ title: "Workshop: ggplot for Visualization"
 Date:  "`r Sys.Date()`"
 output:
   html_document:
-    #self_contained: false
+    df_print: paged
+    self_contained: false
     toc: yes
     toc_float: yes
     highlight: tango
@@ -45,7 +46,7 @@ ggplot(data = <DATA>) +
     
 - The **GEOM_FUNCTION** is a function of your choosing, used to plot your visualization.
 
-    - Some of the most common *geoms* are scatter plots, bar plots, and box plots.  
+    - Some of the most common *geom_*s are scatter plots, bar plots, and box plots.  
     - There are numerous geom_functions.  At some point you will want to [browse the well crafted documentation](https://ggplot2.tidyverse.org/reference/index.html) and learn about other GEOMs.  
     
 - The **mapping** function requires, minimally, the [**`aes()`**](https://ggplot2.tidyverse.org/reference/aes.html) function.  
@@ -63,7 +64,7 @@ ggplot(data = mpg) +
 
 ### The Data
 
-As stated above, ggplot takes a tibble (data frame) for input.  Beyond identifying the data source, one has to map the variables to a geom (~ axis).  Different *geoms* require different data types.  Understanding the definitions of continuous, categorical, and discrete variables -- as well understanding **R** data structures (factors, vectors, data/time, strings) -- will be immensely helpful to you.  You can read all about that in Grolemund's & Wickham's *R4DS* book.  Meanwhile, let's have a look at the `mpg` data we just visualized.  Look up the on-board dataset in the help:  `?mpg` to learn more about the variables.
+As stated above, ggplot takes a tibble (data frame) for input.  Beyond identifying the data source, one has to map the variables to a geom (~ axis).  Different *geom_*s require different data types.  Understanding the definitions of continuous, categorical, and discrete variables -- as well understanding **R** data structures (factors, vectors, data/time, strings) -- will be immensely helpful to you.  You can read all about that in Grolemund's & Wickham's *R4DS* book.  Meanwhile, let's have a look at the `mpg` data we just visualized.  Look up the on-board dataset in the help:  `?mpg` to learn more about the variables.
 
 ```{r}
 mpg
@@ -265,7 +266,7 @@ In the next sets of examples we will use the on-board dataset, *diamonds*.  Diam
 
 By default the `geom_bar` and `stat_count` will total the raw numbers from the data frame.
 
-```{r}
+```{r collapse=TRUE}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut))
 
@@ -276,7 +277,7 @@ ggplot(data = diamonds) +
 
 #### Overriding the default
 
-As shown above performing statistical transformations by calculating summary totals for variables,  above, is a convenient default setting in ggplot::geom_bar and for other particular geoms. Sometimes I find it more logical to use `dplyr` (and `forcats`) to generate summary tables. However, the totals then have to be handled in a special manner after piping to ggplot (`stat = "identity`).  
+As shown above performing statistical transformations by calculating summary totals for variables,  above, is a convenient default setting in ggplot::geom_bar and for other particular geom_'s. Sometimes I find it more logical to use `dplyr` (and `forcats`) to generate summary tables. However, the totals then have to be handled in a special manner after piping to ggplot (`stat = "identity`).  
 
 ##### identity 
 
@@ -339,27 +340,31 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy), position = "jitter")
 ```
 
-## Other geom_s ?
+## Other geom_s 
 
-There are a lot of options and visualizations available to you via ggplot.  The challenge becomes knowning what you can create based on the characteristics of your data.  The ggplot2 cheat sheet -- available from the **H**elp menu inside RStudio -- can help you choose the appropriate geom for your data.  Examples on the cheat sheet will lead you to choose geoms based on characteristics such as, one continuous variable, two continuous, one discrete + one continuous, discrete by discrete, three variables, etc.  Look closely at this useful reference.
+There are a lot of options and visualizations available to you via ggplot.  The challenge becomes knowning what you can create based on the characteristics of your data.  The ggplot2 cheat sheet -- available from the **H**elp menu inside RStudio -- can help you choose the appropriate geom for your data.  Examples on the cheat sheet will lead you to choose geom_'s based on characteristics such as, one continuous variable, two continuous, one discrete + one continuous, discrete by discrete, three variables, etc.  Look closely at this useful reference.
 
 
 ## Coordinate System 
 
 ### Flip
 
-`coord_flip()`
+default
 
 ```{r}
 mpg %>% 
   mutate(class = class %>% fct_infreq() %>% fct_rev()) %>% 
   ggplot(aes(class)) +
-  geom_bar() + coord_flip()
+  geom_bar() 
+```
 
+`coord_flip()`
+
+```{r}
 mpg %>% 
   mutate(class = class %>% fct_infreq()) %>% 
   ggplot(aes(class)) +
-  geom_bar() 
+  geom_bar() + coord_flip()
 ```
 
 
@@ -400,7 +405,7 @@ ggplot() +
 
 `ggplot` offers several default scales.  Scales can be used to tweak more than color.   The *Scales* section of the *Graphics for Communication* chapter ([R4DS](http://r4ds.had.co.nz/graphics-for-communication.html)) should be read for understanding.  You can tweak the aesthetics for continuous, discrete, datetime, or date variables.  Scales are also used to change axis breaks, labels and legends.)  
 
-**Color scales** are often used to change color for **improved visual clarity.**  Two of the most common packages for this are the `RColorBrewer` and `viridis` packages.  Below the "Dark2" palette option from the RColorBrewer set is associated with the categorical `mpg$class` variable.  Aside from "Dark2", find the names of other ColorBrewer palette names in many places: `?scale_colour_brewer`, Google, R4DS, etc.
+**Color scales** are often used to change color for **improved visual clarity.**  Two of the most common packages for this are the `RColorBrewer` and `viridis` packages.  Below the "Dark2" palette option from the RColorBrewer set is associated with the categorical `mpg$class` variable.  Aside from "Dark2", find the names of other ColorBrewer palette names in many places: `?scale_color_brewer`, Google, R4DS, etc.
 
 `scale_color_brewer(palette = "Dark2")`
 
@@ -424,7 +429,7 @@ ggplot(data = diamonds) +
   geom_point(mapping = aes(x = carat, y = price, color = price))
 ```
 
-The second plot uses the viridis package to override the default color scale.  (Aditionally, the alpha aesthetic is mapped to better accomodate overplotting.)
+The second plot uses the viridis package to override the default color scale.  (Aditionally, the alpha aesthetic is mapped to better represent overplotting.)
 
 `viridis::scale_color_viridis()`
 
@@ -473,7 +478,7 @@ hwy_plot +
   labs(
     x = "Engine displacement (L)",
     y = "Highway fuel economy (mpg)",
-    colour = "Car type"
+    color = "Car type"
     )
 ```
 

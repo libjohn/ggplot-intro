@@ -64,7 +64,7 @@ ggplot(data = mpg) +
 
 ### The Data
 
-As stated above, ggplot takes a tibble (data frame) for input.  Beyond identifying the data source, one has to map the variables to a geom (~ axis).  Different *geom_*s require different data types.  Understanding the definitions of continuous, categorical, and discrete variables -- as well understanding **R** data structures (factors, vectors, data/time, strings) -- will be immensely helpful to you.  You can read all about that in Grolemund's & Wickham's *R4DS* book.  Meanwhile, let's have a look at the `mpg` data we just visualized.  Look up the on-board dataset in the help:  `?mpg` to learn more about the variables.
+As stated above, ggplot takes a tibble (data frame) for input.  Beyond identifying the data source, one has to map the variables to a geom axis.  Different *geom_*s require different data types.  Understanding the definitions of continuous, categorical, and discrete variables -- as well understanding **R** data structures (factors, vectors, date/time, strings) -- will be immensely helpful to you.  You can read all about that in Grolemund's & Wickham's *R4DS* book.  Meanwhile, let's have a look at the `mpg` data we just visualized.  Look up the on-board dataset in the help:  `?mpg` to learn more about the variables.
 
 ```{r mpg dataframe}
 mpg

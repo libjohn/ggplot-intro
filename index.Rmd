@@ -20,9 +20,9 @@ You'll need
 - RStudio
 - [Tidyverse](https://tidyverse.org/)
 
-This tutorial assumes you already have R and RStudio installed.  Once you have launched RStudio, load the tidyverse super package of libraries:  `library(tidyverse)`.  Since the Tidyverse packages include the ggplot2 package you do not have to load ggplot2 separately.  If the `library(tidyverse)` command gives an error, you probably want to `install.packages("tidyverse")` before attaching the library.  Installation need only be done once.  Attaching the tidyverse library must be done each time your script.
+This tutorial assumes you already have R and RStudio installed.  Once you have launched RStudio, load the tidyverse super package of libraries:  `library(tidyverse)`.  Since the Tidyverse packages include the ggplot2 package you do not have to load ggplot2 separately.  If the `library(tidyverse)` command gives an error, you probably want to `install.packages("tidyverse")` before attaching the library.  Installation need only be done once.  Attaching the tidyverse library must be done each time you execture your R script.
 
-```{r message=FALSE, warning=FALSE}
+```{r load package, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(sf)
 ```
@@ -56,7 +56,7 @@ ggplot(data = <DATA>) +
 Below is a basic example.  The `geom_point()` function generates a scatter plot from the on-board **mpg** tibble, a dataset of fuel economy data compiled by the US government. `displ` and `hwy` are variables in the dataset assigned to the x and y axis, respectively.
 
 
-```{r message=FALSE, warning=FALSE}
+```{r basic plot, message=FALSE, warning=FALSE}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy))
 ```
@@ -66,7 +66,7 @@ ggplot(data = mpg) +
 
 As stated above, ggplot takes a tibble (data frame) for input.  Beyond identifying the data source, one has to map the variables to a geom (~ axis).  Different *geom_*s require different data types.  Understanding the definitions of continuous, categorical, and discrete variables -- as well understanding **R** data structures (factors, vectors, data/time, strings) -- will be immensely helpful to you.  You can read all about that in Grolemund's & Wickham's *R4DS* book.  Meanwhile, let's have a look at the `mpg` data we just visualized.  Look up the on-board dataset in the help:  `?mpg` to learn more about the variables.
 
-```{r}
+```{r mpg dataframe}
 mpg
 ```
 
@@ -78,7 +78,7 @@ mpg
 
 In the book, _R4DS_, by Grolemund & Wickham the authors discuss some `mpg` data points that seem to fall outside the linear trend.  Specifically, see the blue data points below.  To investigate trends such as this, use `ggplot` to alter the levels of the aesthetics.  We'll discuss how to map the aesthetic levels throughout this workshop.  Remember, this material is presented in _R4DS_.  
 
-```{r echo=FALSE}
+```{r intro to levels and aethetics, echo=FALSE}
 ggplot() + 
   geom_point(data = filter(mpg, class == "2seater"), 
              mapping = aes(x = displ, y = hwy),
@@ -103,7 +103,7 @@ ggplot() +
 
 Below, map a third variable, `class` to the color aesthetic.  
 
-```{r}
+```{r color level by categorical}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
@@ -112,7 +112,7 @@ ggplot(data = mpg) +
 
 We can change the shape aesthetic in the same way as we changed the color.  Notice, R will only map to six distinct shapes.  (Learn more by `?pch`, or Google Search for "shapes in R")
 
-```{r message=FALSE, warning=FALSE}
+```{r shape by categorical, message=FALSE, warning=FALSE}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 ```
@@ -122,7 +122,7 @@ ggplot(data = mpg) +
 - Levels mapped inside the `aes()` are assigned dynamically.
 - Levels mapped **manually** outside the `aes()`, but still inside the `geom_()`, are static.  This allows the coder to some flexibility.  For Example:  See below `color = "blue"` is outside the aesthetic but inside the geom function.
 
-```{r}
+```{r manual color assignment}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 ```
@@ -133,7 +133,7 @@ ggplot(data = mpg) +
 
 ([Question](http://r4ds.had.co.nz/data-visualisation.html#exercises-1)) What’s gone wrong with this code? Why are the points not blue? ([Solution](https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.3.1))
 
-```{r}
+```{r whoops}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 ```
@@ -157,7 +157,7 @@ Above I noted that there are many different aesthetics including **shape**, **co
 
   Below the `stroke` (line thickness) is set to 3. The color of the stroke is cadetblue4.
 
-```{r}
+```{r stroke}
 ggplot(mtcars, aes(wt, mpg)) +
   geom_point(shape = 21, color = "cadetblue4", fill = "lightgoldenrod1", size = 5, stroke = 3)
 ```
@@ -168,7 +168,7 @@ ggplot(mtcars, aes(wt, mpg)) +
 
 Like many graphics programs you can built your vector graphics in layers.  For example, add a regression line with `geom_smooth()`
 
-```{r message=FALSE, warning=FALSE}
+```{r layers, message=FALSE, warning=FALSE}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class)) + 
   geom_smooth(mapping = aes(x = displ, y = hwy))
@@ -179,7 +179,7 @@ ggplot(data = mpg) +
 
 To clarify code changes, let's introduce some code changes.  All ggplot plots can be assigned as an R object.  So, for example...
 
-```{r}
+```{r ggplot as object}
 hwy_plot <- ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 
@@ -188,7 +188,7 @@ hwy_plot
 
 Now it will be easier to see the code changes.  Building the same layered plot as before, this time you can more easily see the code change:  `geom_smooth(mapping = aes(x = displ, y = hwy))`
 
-```{r message=FALSE, warning=FALSE}
+```{r layer on object, message=FALSE, warning=FALSE}
 hwy_plot +
   geom_smooth(mapping = aes(x = displ, y = hwy))
 ```
@@ -197,7 +197,7 @@ hwy_plot +
 
 In the next example, notice the regression_line aesthetic operates the same as before but is applied to a categorical variable.  A third variable, `drv`, is used to highlight a new level in the aesthetic.  In this case, we'll show different levels of regression based on the categorical `drv` variable.
 
-```{r message=FALSE, warning=FALSE}
+```{r smooth via aethetic, message=FALSE, warning=FALSE}
 hwy_plot +
   geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
 ```
@@ -206,7 +206,7 @@ hwy_plot +
 
 Since each geom can have it's own unique arguments, consult the documentation to learn how to manipulate the appearance.  Here we can consult `?geom_smooth` and learn how to remove the standard error shading by setting `se = FALSE`.   
 
-```{r message=FALSE, warning=FALSE}
+```{r confidence interval, message=FALSE, warning=FALSE}
 hwy_plot +
   geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv), se = FALSE)
 ```
@@ -239,7 +239,7 @@ Recreate the R code necessary to generate the graphs found at [3.6.1.6](http://r
 
 Facet a plot on a single discrete variable, e.g. the `class` variable that categorically identifies the type of automobile (e.g. compact, midsize, minivan, etc.)
 
-```{r}
+```{r facet_wrap}
 hwy_plot +
   facet_wrap(~ class, nrow = 2)
 ```
@@ -248,7 +248,7 @@ hwy_plot +
 
 facet a plot on two variables
 
-```{r}
+```{r facet_grid}
 hwy_plot +
   facet_grid(drv ~ cyl)
 ```
@@ -266,7 +266,7 @@ In the next sets of examples we will use the on-board dataset, *diamonds*.  Diam
 
 By default the `geom_bar` and `stat_count` will total the raw numbers from the data frame.
 
-```{r collapse=TRUE}
+```{r geom_ v stat_, collapse=TRUE}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut))
 
@@ -283,7 +283,7 @@ As shown above performing statistical transformations by calculating summary tot
 
 use the pre-define totals "as is":  (`stat = "identity`)
 
-```{r}
+```{r barplot}
 diamonds %>%
   count(cut) %>% 
   ggplot() +
@@ -298,7 +298,7 @@ generating a proportion automaticaly is super nifty...
 
 `y = ..prop.., group = 1`
 
-```{r}
+```{r propotion}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, y = ..prop.., group = 1))
 ```
@@ -307,7 +307,7 @@ ggplot(data = diamonds) +
 
 `fill = cut`
 
-```{r}
+```{r fill barplot}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = cut))
 ```
@@ -317,7 +317,7 @@ ggplot(data = diamonds) +
 
 `fill = clarity`
 
-```{r}
+```{r stacked barplot}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = clarity))
 ```
@@ -326,7 +326,7 @@ ggplot(data = diamonds) +
 
 `position = "dodge"`
 
-```{r}
+```{r side-by-side}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")
 ```
@@ -335,7 +335,7 @@ ggplot(data = diamonds) +
 
 `jitter` can help solve the problem of **overplotting**, as can `dodge` discussed above.
 
-```{r}
+```{r jitter}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy), position = "jitter")
 ```
@@ -351,7 +351,7 @@ There are a lot of options and visualizations available to you via ggplot.  The 
 
 default
 
-```{r}
+```{r dynamic factor}
 mpg %>% 
   mutate(class = class %>% fct_infreq() %>% fct_rev()) %>% 
   ggplot(aes(class)) +
@@ -360,7 +360,7 @@ mpg %>%
 
 `coord_flip()`
 
-```{r}
+```{r coordinate flip}
 mpg %>% 
   mutate(class = class %>% fct_infreq()) %>% 
   ggplot(aes(class)) +
@@ -372,7 +372,7 @@ mpg %>%
 
 Mapping and GIS is supported quite well using `ggplot` combined with the `sf` GIS package.  Interactive maps can also be generated by investigating the `mapbox` and `leaflet` packages.  Thematic maps can be generated with the `tm` package.  Census choropleths can be supported using the `tidycensus` and `tigris` packages.  If you're new to GIS I encourage you to learn more from the [Mapping in R](https://rfun.library.duke.edu/map/) resource page.  Below is an example map generated by transforming some on-board GIS data for North Carolina and found in the `demo()` package.  Some of the ggplot customizations demonstrate techniques you'll learn in the following sections of this workbook.
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r a map, echo=TRUE, message=FALSE, warning=FALSE}
 demo(nc, ask = FALSE, echo = FALSE)  # Generate a sample map of North Carolina using on-board demo data
 
 triangle <- nc %>% 
@@ -409,7 +409,7 @@ ggplot() +
 
 `scale_color_brewer(palette = "Dark2")`
 
-```{r}
+```{r color brewer}
 hwy_plot +
   scale_color_brewer(palette = "Dark2")  
 
@@ -417,14 +417,14 @@ hwy_plot +
 
 Viridis may work better for continuous variables, rather than discrete.  However, below is an example of the viridis package changing the color scale.
 
-```{r}
+```{r viridis}
 hwy_plot +
   viridis::scale_color_viridis(discrete=TRUE)
 ```
 
 Below is another example this time using a continuous variable, `diamonds$price` to demonstrate  color.  The first plot uses the ggplot default.  
 
-```{r}
+```{r orverplot default}
 ggplot(data = diamonds) +
   geom_point(mapping = aes(x = carat, y = price, color = price))
 ```
@@ -433,7 +433,7 @@ The second plot uses the viridis package to override the default color scale.  (
 
 `viridis::scale_color_viridis()`
 
-```{r}
+```{r overplot transparency}
 ggplot(data = diamonds) +
   geom_point(mapping = aes(x = carat, y = price, color = price, alpha = price / 10000)) +
   viridis::scale_color_viridis() +
@@ -444,14 +444,14 @@ ggplot(data = diamonds) +
 
 You can alter the position or existence of legends.  Positions include "top, bottom, left, right, and none".  
 
-```{r}
+```{r legend}
 hwy_plot +
   theme(legend.position = "top")
 ```
 
 You can control other aspects of the legend's appearance as well.  Here we control the number of rows displayed with `guide_legend(nrow =1)`
 
-```{r}
+```{r legend2}
 hwy_plot +
   theme(legend.position = "top") +
   guides(color = guide_legend(nrow = 1))
@@ -462,7 +462,7 @@ hwy_plot +
 
 ### Titles, subtiles, and captions
 
-```{r}
+```{r labels}
 hwy_plot +
   labs(
     title = "Fuel Efficiency Ratings",
@@ -473,7 +473,7 @@ hwy_plot +
 
 ### Axis & legend titles
 
-```{r}
+```{r axis}
 hwy_plot +
   labs(
     x = "Engine displacement (L)",
@@ -489,7 +489,7 @@ Suppose you want the y axis to be listed in increments of 5 rather than the defa
 - `scale_x_continuous(labels = NULL)`
 - `scale_y_continuous(labels = NULL)`
 
-```{r}
+```{r breaks}
 hwy_plot +
   scale_y_continuous(breaks = seq(15, 40, by = 5)) 
 ```
@@ -499,7 +499,7 @@ hwy_plot +
 
 While Annotations can help you highlight your data story, the execution of the annotation is a bit persnickety.  *R4DS* recommends the following approach which accommodates requirements for the same x & y variables.  This requirement for sameness in data frame will help draw axes scales within expected limits.  Follow the format presented here and read the explanation in the _R4DS_ book as you experiment with Annotations.
 
-```{r message=FALSE, warning=FALSE}
+```{r annotate, message=FALSE, warning=FALSE}
 annotation <- mpg %>%
   summarise(
     displ = max(displ),
@@ -519,7 +519,7 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
 
 Let's attempt to make the story clearer by adding regression lines along with titles, subtitles, captions and annotations.
 
-```{r message=FALSE, warning=FALSE}
+```{r fun, message=FALSE, warning=FALSE}
 ggplot(data = mpg, aes(x = displ, y = hwy)) + 
   geom_point(mapping = aes(color = class)) +
   geom_text(aes(label = label_text), 
@@ -545,7 +545,7 @@ Using the `theme()` function, you can customize your visualization extensively. 
 
 ` theme_bw()`
 
-```{r}
+```{r theme}
 hwy_plot +
   theme_bw()
 ```
@@ -584,7 +584,7 @@ Extra cool and special packages
 
 List the packages used to develop this code
 
-```{r}
+```{r session info}
 devtools::session_info()
 ```
 

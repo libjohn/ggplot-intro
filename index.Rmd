@@ -20,7 +20,7 @@ You'll need
 - RStudio
 - [Tidyverse](https://tidyverse.org/)
 
-This tutorial assumes you already have R and RStudio installed.  Once you have launched RStudio, load the tidyverse super package of libraries:  `library(tidyverse)`.  Since the Tidyverse packages include the ggplot2 package you do not have to load ggplot2 separately.  If the `library(tidyverse)` command gives an error, you probably want to `install.packages("tidyverse")` before attaching the library.  Installation need only be done once.  Attaching the tidyverse library must be done each time you execture your R script.
+This tutorial assumes you already have R and RStudio installed.  Once you have launched RStudio, load the tidyverse super package of libraries:  `library(tidyverse)`.  Since the Tidyverse packages include the ggplot2 package you do not have to load ggplot2 separately.  If the `library(tidyverse)` command gives an error, you probably want to `install.packages("tidyverse")` before attaching the library.  Installation need only be done once.  Attaching the tidyverse library must be done each time you execute your R script.
 
 ```{r load package, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -294,7 +294,7 @@ diamonds %>%
 
 ##### Proportion
 
-generating a proportion automaticaly is super nifty...
+generating a proportion automatically is super nifty...
 
 `y = ..prop.., group = 1`
 
@@ -342,7 +342,7 @@ ggplot(data = mpg) +
 
 ## Other geom_s 
 
-There are a lot of options and visualizations available to you via ggplot.  The challenge becomes knowning what you can create based on the characteristics of your data.  The ggplot2 cheat sheet -- available from the **H**elp menu inside RStudio -- can help you choose the appropriate geom for your data.  Examples on the cheat sheet will lead you to choose geom_'s based on characteristics such as, one continuous variable, two continuous, one discrete + one continuous, discrete by discrete, three variables, etc.  Look closely at this useful reference.
+There are a lot of options and visualizations available to you via ggplot.  The challenge becomes knowing what you can create based on the characteristics of your data.  The ggplot2 cheat sheet -- available from the **H**elp menu inside RStudio -- can help you choose the appropriate geom for your data.  Examples on the cheat sheet will lead you to choose geom_'s based on characteristics such as, one continuous variable, two continuous, one discrete + one continuous, discrete by discrete, three variables, etc.  Look closely at this useful reference.
 
 
 ## Coordinate System 
@@ -429,7 +429,7 @@ ggplot(data = diamonds) +
   geom_point(mapping = aes(x = carat, y = price, color = price))
 ```
 
-The second plot uses the viridis package to override the default color scale.  (Aditionally, the alpha aesthetic is mapped to better represent overplotting.)
+The second plot uses the viridis package to override the default color scale.  (Additionally, the alpha aesthetic is mapped to better represent overplotting.)
 
 `viridis::scale_color_viridis()`
 
@@ -573,10 +573,13 @@ Extra cool and special packages
 
 ## Resources
 
-- R for Data Science by Grolemund & Wickham.  Chapter on _Data Visualization_,  & Chapter on _Graphics for Communication_, & Chapter on _Exploratory Data Analysis_
-- Intro, Tutorials, and Reference materials by Selva Prabhakaran
-- ggplot cookbook 
-- [Data Visualization](http://socviz.co/): A practical introduction by Kieran Healy
+- [R for Data Science](http://r4ds.had.co.nz/) by Grolemund & Wickham.  Chapter on _Data Visualization_,  & Chapter on _Graphics for Communication_, & Chapter on _Exploratory Data Analysis_
+- [ggplot2: part of the tidyverse](https://ggplot2.tidyverse.org/) -- check out all the cool on-board datasets
+- [ggplot2: short tutorial](http://r-statistics.co/ggplot2-Tutorial-With-R.html) by Selva Prabhakaran
+- [ggplot cookbook](http://www.cookbook-r.com/Graphs/)  by Winston Chang
+- [Data Visualisation](https://rgup.gitlab.io/research_cycle/02_ggplot.html) (web resource)
+- [**R Graphi Gallery**](http://www.r-graph-gallery.com/)
+- [Data Visualization](http://socviz.co/): A practical introduction by Kieran Healy (book)
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) by Claus O. Wilke
 
 

@@ -578,7 +578,7 @@ Extra cool and special packages
 - [ggplot2: short tutorial](http://r-statistics.co/ggplot2-Tutorial-With-R.html) by Selva Prabhakaran
 - [ggplot cookbook](http://www.cookbook-r.com/Graphs/)  by Winston Chang
 - [Data Visualisation](https://rgup.gitlab.io/research_cycle/02_ggplot.html) (web resource)
-- [**R Graphi Gallery**](http://www.r-graph-gallery.com/)
+- [**R Graph Gallery**](http://www.r-graph-gallery.com/)
 - [Data Visualization](http://socviz.co/): A practical introduction by Kieran Healy (book)
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) by Claus O. Wilke
 

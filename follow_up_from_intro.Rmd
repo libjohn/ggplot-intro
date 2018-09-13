@@ -86,3 +86,5 @@ See Also / See Especially the very useful RStudio [Webinar Series](https://resou
 
 ## Large Data
 
+See notes from Michael Akande's DataFest 2018 presentation on [large data notebook](large_data.nb.html).
+

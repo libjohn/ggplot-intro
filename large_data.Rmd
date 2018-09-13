@@ -1,6 +1,9 @@
 ---
 title: "Notes from Akande's Working iwth Large Data"
-output: html_notebook
+output: 
+  html_notebook: 
+    toc: yes
+    toc_float: yes
 ---
 
 DataFest: Large Data in R
@@ -61,7 +64,11 @@ data.table::fread | 6.78 | 0.69 | 2.72
 
 standard read with `read_csv`
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
+air <- read_csv("../tutotial-big-data-large-data/data/2008.csv")
+```
+
+``` r
 air <- read_csv("../tutotial-big-data-large-data/data/2008.csv")
 ```
 
@@ -96,7 +103,7 @@ system.time({air2 <- read_csv("data/2008.csv")})
 
 
 
-## Preserve data table asa a binary matrix
+## Preserve data table as a binary matrix
 
 **.Rdata** 
 

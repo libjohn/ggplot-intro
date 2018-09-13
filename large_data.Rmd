@@ -1,9 +1,12 @@
 ---
 title: "Notes from Akande's Working iwth Large Data"
-output: 
-  html_notebook: 
+output:
+  html_document:
+    df_print: paged
+    self_contained: false
     toc: yes
     toc_float: yes
+    highlight: tango
 ---
 
 DataFest: Large Data in R

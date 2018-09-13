@@ -22,6 +22,10 @@ You'll need
 
 This tutorial assumes you already have R and RStudio installed.  Once you have launched RStudio, load the tidyverse super package of libraries:  `library(tidyverse)`.  Since the Tidyverse packages include the ggplot2 package you do not have to load ggplot2 separately.  If the `library(tidyverse)` command gives an error, you probably want to `install.packages("tidyverse")` before attaching the library.  Installation need only be done once.  Attaching the tidyverse library must be done each time you execute your R script.
 
+## But First
+
+Some [Follow-up](follow_up_from_intro.html) from last week
+
 ```{r load package, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(sf)

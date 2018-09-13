@@ -26,6 +26,8 @@ This tutorial assumes you already have R and RStudio installed.  Once you have l
 
 Some [Follow-up](follow_up_from_intro.html) from last week
 
+## Load Packages
+
 ```{r load package, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(sf)

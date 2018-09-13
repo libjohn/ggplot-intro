@@ -140,7 +140,8 @@ flights_sub = flights %>% sample_frac(0.2)
 object.size(flights)
 object.size(flights_sub)
 ```
-# then free up memory
+
+## then free up memory
 
 ```{r}
 rm(flights)

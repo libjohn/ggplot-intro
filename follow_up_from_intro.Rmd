@@ -42,12 +42,13 @@ my_rowwise_tibble
 
 ### Join Types
 
-See _R for Data Science_ chapter 13.4.7
+See _R for Data Science_ [chapter 13.4](http://r4ds.had.co.nz/relational-data.html#mutating-joins)
+
 or https://dplyr.tidyverse.org/reference/index.html#section-two-table-verbs 
 
 ### Arrange
 
-See _R for Data Science_ chapter 
+See _R for Data Science_ [chapter 5.3](http://r4ds.had.co.nz/transform.html#arrange-rows-with-arrange)
 
 https://dplyr.tidyverse.org/reference/arrange.html
 

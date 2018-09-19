@@ -15,5 +15,6 @@ A gentle introduction to using ggplot2 as a visualization package.  This present
 
 
 - https://rfun.library.duke.edu/ggplot
+- https://rfun.library.duke.edu/follow_up_from_intro.html
 - https://rfun.library.duke.edu/ggplot/large_data.html
 

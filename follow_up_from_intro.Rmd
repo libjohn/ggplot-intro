@@ -1,7 +1,7 @@
 ---
 title: "Follow-up from Intro"
 author: "John Little"
-date: "'r Sys.Date()'"
+date: "`r Sys.Date()`"
 output:
   html_document:
     df_print: paged

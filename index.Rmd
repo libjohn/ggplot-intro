@@ -125,7 +125,7 @@ ggplot(data = mpg) +
 
 ### Manual vs automatic aethetics
 
-- Levels mapped inside the `aes()` are assigned dynamically.
+- Levels mapped inside the `aes()` are assigned dynamically from dataframe values.
 - Levels mapped **manually** outside the `aes()`, but still inside the `geom_()`, are static.  This allows the coder to some flexibility.  For Example:  See below `color = "blue"` is outside the aesthetic but inside the geom function.
 
 ```{r manual color assignment}
@@ -475,6 +475,25 @@ hwy_plot +
     subtitle = "Highway mpg as a dependency of Engine Displacement",
     caption = "Data from www.fueleconomy.gov"
   )
+```
+
+### Labels -- Data
+
+```{r plot labels}
+hwy_plot +
+  geom_label(data = mpg %>% 
+              filter(class == "2seater") %>% 
+              filter(displ >= max(displ)), 
+            aes(displ, hwy, label = model, color = class),
+            nudge_x = -0.15,
+            nudge_y = 1.50,
+            show.legend = FALSE) +
+  geom_label(data = mpg %>% 
+               filter(class == "subcompact") %>% 
+               filter(hwy == max(hwy)),
+             aes(displ, hwy, label = model, color = class),
+             nudge_x = 0.55,
+             show.legend = FALSE)
 ```
 
 ### Axis & legend titles

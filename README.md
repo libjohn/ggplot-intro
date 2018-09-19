@@ -12,5 +12,5 @@ for MIDS Fall 2108
 A gentle introduction to using ggplot2 as a visualization package. This presentation is based on the Data Visualization chapter in Grolemund's & Wickham's [*R for Data Science*](http://r4ds.had.co.nz/data-visualisation.html).
 
 -   <https://rfun.library.duke.edu/ggplot>
--   <https://rfun.library.duke.edu/follow_up_from_intro.html>
+-   <https://rfun.library.duke.edu/ggplot/follow_up_from_intro.html>
 -   <https://rfun.library.duke.edu/ggplot/large_data.html>

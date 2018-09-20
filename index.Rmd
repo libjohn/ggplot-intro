@@ -76,7 +76,7 @@ As stated above, ggplot takes a tibble (data frame) for input.  Beyond identifyi
 mpg
 ```
 
-### Exercies
+### Exercises
 
 1. Make a scatter plot of `hwy` vs `cyl`. (Question from [R4DS](http://r4ds.had.co.nz/data-visualisation.html#exercises ) | [Solution](https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.2.4.))
 

@@ -540,8 +540,7 @@ hwy_plot</code></pre></div>
 <h3>Flip</h3>
 <p>default</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mpg <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">class =</span> class <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">           </span><span class="kw">fct_infreq</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">class =</span> class <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">fct_infreq</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(class)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>() </code></pre></div>
 <p><img src="index_files/figure-html/dynamic%20factor-1.png" width="672" /></p>

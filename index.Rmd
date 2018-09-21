@@ -361,7 +361,8 @@ default
 
 ```{r dynamic factor}
 mpg %>% 
-  mutate(class = class %>% fct_infreq() %>% fct_rev()) %>% 
+  mutate(class = class %>% 
+           fct_infreq()) %>% 
   ggplot(aes(class)) +
   geom_bar() 
 ```
@@ -370,7 +371,9 @@ mpg %>%
 
 ```{r coordinate flip}
 mpg %>% 
-  mutate(class = class %>% fct_infreq()) %>% 
+  mutate(class = class %>% 
+           fct_infreq() %>% 
+           fct_rev()) %>% 
   ggplot(aes(class)) +
   geom_bar() + coord_flip()
 ```

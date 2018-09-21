@@ -19,7 +19,7 @@ https://readr.tidyverse.org/
 
 function | package | df v Tibble | string default | parsers | notes 
 --- | -------- | --------- | --- | --- | --- 
-**read_csv** | [reader](https://readr.tidyverse.org/index.html) (**tidyverse**) | Tibble | character |  dates, times, currencies, percentages, ...  | **faster** 
+**read_csv** | [readr](https://readr.tidyverse.org/index.html) (**tidyverse**) | Tibble | character |  dates, times, currencies, percentages, ...  | **faster** 
 read.csv | base R | standard df | strings as factors |  | it's fine.
 
 ### Tibbles v standard Data Frames

@@ -524,6 +524,37 @@ hwy_plot +
 ```
 
 
+### Limits & Breaks
+
+- `xlim()` & `ylim()` are two simply ways to set the limits of the x and y scales
+- another option is to use the `breaks()` and `labels()` functions as arguments inside one of the `scale_` functions.  e.g.
+
+    - `scale_size_continuous(name="Engine Classification", 
+                        breaks=c(1, 2, 3),
+                        labels=c("1 Liter","2 Liter","3 Liter"))`
+                      
+The last two plots, below, use `xlim` to harmonize the x axis scale
+
+```{r}
+hwy_plot
+
+mpg %>% 
+  filter(displ < 5) %>% 
+  ggplot() + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+  xlim(1.5, 7.5)
+
+mpg %>% 
+  filter(displ >= 5) %>% 
+  ggplot() + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+  xlim(1.5, 7.5)
+
+
+```
+
+
+
 ## Annotations
 
 While Annotations can help you highlight your data story, the execution of the annotation is a bit persnickety.  *R4DS* recommends the following approach which accommodates requirements for the same x & y variables.  This requirement for sameness in data frame will help draw axes scales within expected limits.  Follow the format presented here and read the explanation in the _R4DS_ book as you experiment with Annotations.

@@ -1,5 +1,4 @@
 name: "ggplot2 Workshop"
-outputdir: "."
 navbar:
   title: "Visualization with ggplot2"
   left:

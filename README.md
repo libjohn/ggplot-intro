@@ -1,9 +1,4 @@
----
-title: "README"
-author: "John Little"
-date: "`r Sys.Date()`"
-output: github_document
----
+# README
 
 This repo builds the website:  https://ggplot.library.duke.edu/
 
@@ -15,5 +10,8 @@ The [website](https://ggplot.library.duke.edu/) supports a workshop on ggplot2. 
 1. RStudio
 1. Build tab (between environment and git)
 1. Build [Website button](https://rmarkdown.rstudio.com/lesson-13.html)
+
+
+
 
 

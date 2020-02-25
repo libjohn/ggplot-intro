@@ -472,7 +472,7 @@ div.tocify {
 
 
 <p>[ <a href="follow_up_from_intro.html">follow up from intro2r</a> | <a href="large_data.html">large data</a> | <a href="/git/">git</a> ]</p>
-<p>The outline, explanations, and code examples for this workshop are derived from the work found in the <a href="http://r4ds.had.co.nz/data-visualisation.html"><em>Data Visualization</em> chapter</a> and the <a href="http://r4ds.had.co.nz/graphics-for-communication.html"><em>Graphics for Communication</em> chapter</a> of Grolemund’s and Wickham’s <a href="http://r4ds.had.co.nz/"><em>R for Data Science</em></a>. Please reference Grolemund &amp; Wickham as the source. My goal with this document is to create an outline for a two hour workshop on <code>ggplot</code>. Solutions to <em>R4DS</em> exercises can be found in Jeffrey Arnold’s <a href="https://jrnold.github.io/r4ds-exercise-solutions/">R for Data Science Solutions</a>.</p>
+<p>The outline, explanations, and code examples for this workshop are derived from the work found in the <a href="https://r4ds.had.co.nz/data-visualisation.html"><em>Data Visualization</em> chapter</a> and the <a href="https://r4ds.had.co.nz/graphics-for-communication.html"><em>Graphics for Communication</em> chapter</a> of Grolemund’s and Wickham’s <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a>. Please reference Grolemund &amp; Wickham as the source. My goal with this document is to create an outline for a two hour workshop on <code>ggplot</code>. Solutions to <em>R4DS</em> exercises can be found in Jeffrey Arnold’s <a href="https://jrnold.github.io/r4ds-exercise-solutions/">R for Data Science Solutions</a>.</p>
 <div id="prerequisites" class="section level2">
 <h2>Prerequisites</h2>
 <p>You’ll need</p>
@@ -532,7 +532,7 @@ div.tocify {
 <div id="exercises" class="section level3">
 <h3>Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Make a scatter plot of <code>hwy</code> vs <code>cyl</code>. (Question from <a href="http://r4ds.had.co.nz/data-visualisation.html#exercises">R4DS</a> | <a href="https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.2.4.">Solution</a>)</li>
+<li>Make a scatter plot of <code>hwy</code> vs <code>cyl</code>. (Question from <a href="https://r4ds.had.co.nz/data-visualisation.html#exercises">R4DS</a> | <a href="https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.2.4.">Solution</a>)</li>
 </ol>
 </div>
 </div>
@@ -578,7 +578,7 @@ div.tocify {
 <h3>Exercises</h3>
 <div id="section" class="section level4">
 <h4>3.3.1.1</h4>
-<p>(<a href="http://r4ds.had.co.nz/data-visualisation.html#exercises-1">Question</a>) What’s gone wrong with this code? Why are the points not blue? (<a href="https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.3.1">Solution</a>)</p>
+<p>(<a href="https://r4ds.had.co.nz/data-visualisation.html#exercises-1">Question</a>) What’s gone wrong with this code? Why are the points not blue? (<a href="https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.3.1">Solution</a>)</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>))</a></code></pre></div>
 <p><img src="guide_files/figure-html/whoops-1.png" width="672" /></p>
@@ -599,7 +599,7 @@ div.tocify {
 <p>Above I noted that there are many different aesthetics including <strong>shape</strong>, <strong>color</strong>, <em>size</em>, opacity (<em>alpha</em>), and <em>stroke</em>. Let’s take a look at <code>stroke</code> and note two additional features…</p>
 <ul>
 <li><p>When using <code>stroke</code>, also use <code>fill</code></p></li>
-<li><p><code>stroke</code> may not work with every <a href="http://r4ds.had.co.nz/data-visualisation.html#fig:shapes">shape</a>. Check the help pages for more information</p>
+<li><p><code>stroke</code> may not work with every <a href="https://r4ds.had.co.nz/data-visualisation.html#fig:shapes">shape</a>. Check the help pages for more information</p>
 <p>Below the <code>stroke</code> (line thickness) is set to 3. The color of the stroke is cadetblue4.</p></li>
 </ul>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(wt, mpg)) <span class="op">+</span></a>
@@ -647,10 +647,10 @@ div.tocify {
 </div>
 <div id="exercises-2" class="section level3">
 <h3>Exercises</h3>
-<p><a href="http://r4ds.had.co.nz/data-visualisation.html#exercises-3" class="uri">http://r4ds.had.co.nz/data-visualisation.html#exercises-3</a></p>
+<p><a href="https://r4ds.had.co.nz/data-visualisation.html#exercises-3" class="uri">https://r4ds.had.co.nz/data-visualisation.html#exercises-3</a></p>
 <div id="section-3" class="section level4">
 <h4>3.6.1.5</h4>
-<p>Will these two graphs look different? Why/why not? <a href="http://r4ds.had.co.nz/data-visualisation.html#exercises-3">Solution</a></p>
+<p>Will these two graphs look different? Why/why not? <a href="https://r4ds.had.co.nz/data-visualisation.html#exercises-3">Solution</a></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>()</a>
@@ -661,7 +661,7 @@ div.tocify {
 </div>
 <div id="section-4" class="section level4">
 <h4>3.6.1.6</h4>
-<p>Recreate the R code necessary to generate the graphs found at <a href="http://r4ds.had.co.nz/data-visualisation.html#exercises-3">3.6.1.6</a> | <a href="https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.6.6">Solutions</a></p>
+<p>Recreate the R code necessary to generate the graphs found at <a href="https://r4ds.had.co.nz/data-visualisation.html#exercises-3">3.6.1.6</a> | <a href="https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html#exercise-3.6.6">Solutions</a></p>
 </div>
 </div>
 </div>
@@ -807,7 +807,7 @@ ggplot() +
 </div>
 <div id="color-scales" class="section level2">
 <h2>Color Scales</h2>
-<p><code>ggplot</code> offers several default scales. Scales can be used to tweak more than color. The <em>Scales</em> section of the <em>Graphics for Communication</em> chapter (<a href="http://r4ds.had.co.nz/graphics-for-communication.html">R4DS</a>) should be read for understanding. You can tweak the aesthetics for continuous, discrete, datetime, or date variables. Scales are also used to change axis breaks, labels and legends.)</p>
+<p><code>ggplot</code> offers several default scales. Scales can be used to tweak more than color. The <em>Scales</em> section of the <em>Graphics for Communication</em> chapter (<a href="https://r4ds.had.co.nz/graphics-for-communication.html">R4DS</a>) should be read for understanding. You can tweak the aesthetics for continuous, discrete, datetime, or date variables. Scales are also used to change axis breaks, labels and legends.)</p>
 <p><strong>Color scales</strong> are often used to change color for <strong>improved visual clarity.</strong> Two of the most common packages for this are the <code>RColorBrewer</code> and <code>viridis</code> packages. Below the “Dark2” palette option from the RColorBrewer set is associated with the categorical <code>mpg$class</code> variable. Aside from “Dark2”, find the names of other ColorBrewer palette names in many places: <code>?scale_color_brewer</code>, Google, R4DS, etc.</p>
 <p><code>scale_color_brewer(palette = "Dark2")</code></p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">hwy_plot <span class="op">+</span></a>
@@ -959,7 +959,7 @@ ggplot() +
 <h2>Themes</h2>
 <p>Using the <code>theme()</code> function, you can customize your visualization extensively. Above, in the <strong>Legends</strong> section we used <code>theme()</code> to selectively move the position of the legend. Beyond that you can alter the appearance of your visualization with several pre-configured themes. (See image from the <strong>R4DS</strong> book, below.) A fuller explanation of themes can be found in <em>Graphics for communication</em> chapter of <em>R for Data Science</em> by Grolemund &amp; Wickham. If you like to tweedle, <code>themes()</code> is a great function to explore further.</p>
 <div class="figure">
-<img src="http://r4ds.had.co.nz/images/visualization-themes.png" alt="Image Credit: Themes from R for Data Science by Grolemund &amp; Wickham" />
+<img src="https://r4ds.had.co.nz/images/visualization-themes.png" alt="Image Credit: Themes from R for Data Science by Grolemund &amp; Wickham" />
 <p class="caption">Image Credit: Themes from <em>R for Data Science</em> by Grolemund &amp; Wickham</p>
 </div>
 <p><code>theme_bw()</code></p>
@@ -973,7 +973,7 @@ ggplot() +
 </div>
 <div id="saving" class="section level2">
 <h2>Saving</h2>
-<p><code>ggsave()</code> will save your existing visualization to disk. <strong>However</strong>, when you compose your code using R Markdown (and <code>knitr</code>), you can knit your literate code and integrate your dynamically produced visualizations into your reports, all without separately saving your image to disk. Read more about <a href="http://r4ds.had.co.nz/r-markdown.html">R Markdown</a> or browse the <a href="https://rmarkdown.rstudio.com/">R Markdown support pages</a>.</p>
+<p><code>ggsave()</code> will save your existing visualization to disk. <strong>However</strong>, when you compose your code using R Markdown (and <code>knitr</code>), you can knit your literate code and integrate your dynamically produced visualizations into your reports, all without separately saving your image to disk. Read more about <a href="https://r4ds.had.co.nz/r-markdown.html">R Markdown</a> or browse the <a href="https://rmarkdown.rstudio.com/">R Markdown support pages</a>.</p>
 </div>
 <div id="extending-ggplot-packages" class="section level2">
 <h2>Extending ggplot packages</h2>
@@ -984,19 +984,19 @@ ggplot() +
 <li><code>ggrepel</code> – adjust labels to prevent overlap</li>
 <li><strong>Annimation</strong>: use <code>gganimate</code>to <a href="https://github.com/thomasp85/gganimate">animate</a> plots with motion</li>
 <li><strong>Interactivity</strong>: use <code>plotly</code> to turn your visualization into an interactive, publication-quality, online experience</li>
-<li>Gallery of other extra cool <a href="http://www.ggplot2-exts.org/gallery/">ggplot extensions</a></li>
+<li>Gallery of other extra cool <a href="https://www.ggplot2-exts.org/gallery/">ggplot extensions</a></li>
 </ul>
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
 <ul>
-<li><a href="http://r4ds.had.co.nz/">R for Data Science</a> by Grolemund &amp; Wickham. Chapter on <em>Data Visualization</em>, &amp; Chapter on <em>Graphics for Communication</em>, &amp; Chapter on <em>Exploratory Data Analysis</em></li>
+<li><a href="https://r4ds.had.co.nz/">R for Data Science</a> by Grolemund &amp; Wickham. Chapter on <em>Data Visualization</em>, &amp; Chapter on <em>Graphics for Communication</em>, &amp; Chapter on <em>Exploratory Data Analysis</em></li>
 <li><a href="https://ggplot2.tidyverse.org/">ggplot2: part of the tidyverse</a> – check out all the cool on-board datasets</li>
-<li><a href="http://r-statistics.co/ggplot2-Tutorial-With-R.html">ggplot2: short tutorial</a> by Selva Prabhakaran</li>
-<li><a href="http://www.cookbook-r.com/Graphs/">ggplot cookbook</a> by Winston Chang</li>
+<li><a href="https://r-statistics.co/ggplot2-Tutorial-With-R.html">ggplot2: short tutorial</a> by Selva Prabhakaran</li>
+<li><a href="https://www.cookbook-r.com/Graphs/">ggplot cookbook</a> by Winston Chang</li>
 <li><a href="https://rgup.gitlab.io/research_cycle/02_ggplot.html">Data Visualisation</a> (web resource)</li>
-<li><a href="http://www.r-graph-gallery.com/"><strong>R Graph Gallery</strong></a></li>
-<li><a href="http://socviz.co/">Data Visualization</a>: A practical introduction by Kieran Healy (book)</li>
+<li><a href="https://www.r-graph-gallery.com/"><strong>R Graph Gallery</strong></a></li>
+<li><a href="https://socviz.co/">Data Visualization</a>: A practical introduction by Kieran Healy (book)</li>
 <li><a href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a> by Claus O. Wilke</li>
 </ul>
 </div>
@@ -1104,7 +1104,7 @@ ggplot() +
 </div>
 <div id="attribution" class="section level2">
 <h2>Attribution</h2>
-<p>The outline, explanations, and code examples for this workshop are from <strong>Grolemund’s &amp; Wickham’s <a href="http://r4ds.had.co.nz/"><em>R for Data Science</em></a>. Please cite that source.</strong> This workbook outline serves as a guide for a two-hour workshop delivered at Duke University, <a href="https://library.duke.edu/data/">Data &amp; Visualization Services</a>.</p>
+<p>The outline, explanations, and code examples for this workshop are from <strong>Grolemund’s &amp; Wickham’s <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a>. Please cite that source.</strong> This workbook outline serves as a guide for a two-hour workshop delivered at Duke University, <a href="https://library.duke.edu/data/">Data &amp; Visualization Services</a>.</p>
 </div>
 
 <p></p>

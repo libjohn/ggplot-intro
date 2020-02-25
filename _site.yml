@@ -1,0 +1,27 @@
+name: "ggplot2 Workshop"
+outputdir: "."
+navbar:
+  title: "Visualization with ggplot2"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Guide"
+      href: guide.html
+    - text: "Slides"
+      href: slides/index.html
+  right:
+  - icon: fa-github
+#    - text: "GitHub"
+    href: https://github.com/libjohn/ggplot-intro         
+  - icon: fa-home
+    menu:
+      - text: "Rfun Home"
+        href: "https://rfun.library.duke.edu/"
+      - text: "Center for Data & Visualization Sciences"
+        href: https://library.duke.edu/data/   
+output:
+  html_document:
+    theme: flatly
+    includes:
+      after_body: footer.html
+new_session: true

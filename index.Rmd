@@ -13,6 +13,8 @@ tagList(rmarkdown::html_dependency_font_awesome())
 
 _embed youtube video here_
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NtfHcNlwSEY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Shareable workshop code
 
 All the shareable code for this ggplot2 workshop can be found in the [workshop_ggplot2 repository on github](https://github.com/libjohn/workshop_ggplot2)

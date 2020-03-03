@@ -41,5 +41,3 @@ https://ggplot2.tidyverse.org
 - [RStudio Primers on visualizing data](https://rstudio.cloud/learn/primers/3)
 - [Exercises on ggplot2](https://github.com/amzoss/ggplot2-DF19) by [Angela Zoss](https://library.duke.edu/about/directory/staff/angela.zoss)
 
-
-foo

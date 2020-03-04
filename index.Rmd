@@ -8,12 +8,11 @@ tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 <p> &nbsp;
-
+<!--
 ## Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vL3lwGHmiNY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-_embed youtube video here_
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vL3lwGHmiNY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+_embed youtube video here_   -->
 
 ## Shareable workshop code
 

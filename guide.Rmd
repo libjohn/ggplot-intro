@@ -10,8 +10,6 @@ output:
     highlight: tango
 ---
 
-[ [follow up from intro2r](follow_up_from_intro.html) | [large data](large_data.html) | [git](/git/) ]
-
 The outline, explanations, and code examples for this workshop are derived from the work found in the [_Data Visualization_ chapter](https://r4ds.had.co.nz/data-visualisation.html) and the [_Graphics for Communication_ chapter](https://r4ds.had.co.nz/graphics-for-communication.html) of Grolemund's and Wickham's [*R for Data Science*](https://r4ds.had.co.nz/).  Please reference Grolemund & Wickham as the source.  My goal with this document is to create an outline for a two hour workshop on `ggplot`.  Solutions to _R4DS_ exercises can be found in Jeffrey Arnold's [R for Data Science Solutions](https://jrnold.github.io/r4ds-exercise-solutions/).
 
 ## Prerequisites
@@ -24,9 +22,10 @@ You'll need
 
 This tutorial assumes you already have R and RStudio installed.  Once you have launched RStudio, load the tidyverse super package of libraries:  `library(tidyverse)`.  Since the Tidyverse packages include the ggplot2 package you do not have to load ggplot2 separately.  If the `library(tidyverse)` command gives an error, you probably want to `install.packages("tidyverse")` before attaching the library.  Installation need only be done once.  Attaching the tidyverse library must be done each time you execute your R script.
 
-## But First
+## Video of Workshop
 
-Some [Follow-up](follow_up_from_intro.html) from last week
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vL3lwGHmiNY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Load Packages
 

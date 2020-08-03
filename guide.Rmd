@@ -31,9 +31,9 @@ Get more information from:
 - https://tidyverse.org
 - https://ggplot2.tidyverse.org
 
-The ggplot2 template is used to identify the dataframe, identify the x and y axis, and define visualized layers
-
 ## ggplot2 template code
+
+The ggplot2 template is used to identify the dataframe, identify the x and y axis, and define visualized layers
 
 >`ggplot(data = ---, mapping = aes(x = ---, y = ---)) + geom_----()`
 
@@ -278,6 +278,7 @@ msleep %>%
   ggplot(aes(vore)) +
   geom_bar()
 ```
+
 ### forcats::fct_infreq()
 
 Change the order of the bars by the frequency of observations.

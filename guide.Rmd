@@ -14,9 +14,12 @@ htmltools::img(src = knitr::image_uri("images/Rlogo.png"),
                style = 'position:absolute; top:0; right:0; padding:10px;')
 ```
 
+&nbsp;  
+
 ## Load library packages
 
-I only need `ggplot2` but I like to load `tidyverse` because it includes 8 complimentary packages, including `ggplot2`.
+I only need `ggplot2` but I like to load `tidyverse`   
+because it includes 8 complimentary packages, including `ggplot2`.
 
 ```{r message=FALSE, warning=FALSE}
 # library(ggplot2)

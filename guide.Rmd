@@ -1,5 +1,4 @@
 ---
-title: "ggplot2 - quick and easy"
 abstract: "A very quick overview of visualizing data with ggplot2.<p/>"
 output: 
   html_document: 
@@ -14,8 +13,6 @@ htmltools::img(src = knitr::image_uri("images/Rlogo.png"),
                alt = 'Rfun logo', 
                style = 'position:absolute; top:0; right:0; padding:10px;')
 ```
-
-This code can be found at https://github.com/libjohn/workshop_rfun_flipped/ggplot2_quick.Rmd
 
 ## Load library packages
 

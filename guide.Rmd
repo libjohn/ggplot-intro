@@ -1,7 +1,5 @@
 ---
 title: "ggplot2 - quick and easy"
-author: "John Little"
-date: "`r Sys.Date()`"
 abstract: "A very quick overview of visualizing data with ggplot2.<p/>"
 output: 
   html_document: 

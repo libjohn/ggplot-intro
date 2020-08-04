@@ -33,12 +33,15 @@ https://ggplot2.tidyverse.org
 ## Books and resources
 
 - Quick tips on [Visualization principles](https://introds.org/slides/w4_d1-effective-dataviz/w4_d1-effective-dataviz.html#26)
-- ggplot2 ebook:  [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) by Hadley Wickham
-- [Data Visualization](https://socviz.co/gettingstarted.html#gettingstarted) A practical introduction by Kieran Healy
+- [ggplot2: Elegant Graphics for Data Analysis.](https://ggplot2-book.org/) Hadley Wickham
+- [Data Visualization: A Practical Introduction.](https://socviz.co/lookatdata.html) Kieran Healy
+- [Data Visualization with R.](https://rkabacoff.github.io/datavis/) Rob Kabacoff
+- [Interactive web-based data visualization with R, plotly, and shiny.](https://plotly-r.com/) Carson Sievert
 
 ## Interactive primer & practice exercises
 
 - [RStudio Primers on visualizing data](https://rstudio.cloud/learn/primers/3)
-- [Exercises on ggplot2](https://github.com/amzoss/ggplot2-DF19) by [Angela Zoss](https://library.duke.edu/about/directory/staff/angela.zoss)  
+- [Angela Zoss code exercises](https://github.com/amzoss/ggplot2-S20) 
+ by [Angela Zoss](https://library.duke.edu/about/directory/staff/angela.zoss)  
 
 

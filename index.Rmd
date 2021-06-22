@@ -9,26 +9,33 @@ tagList(rmarkdown::html_dependency_font_awesome())
 
 <p> &nbsp;
 
-## Video
+## quickStart introduction
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vL3lwGHmiNY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TIJzx5eQbgk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
-## Shareable workshop code
+[Shareable Workshop Code](https://github.com/libjohn/workshop_ggplot2)
 
-All the shareable code for this ggplot2 workshop can be found in the [workshop_ggplot2 repository on github](https://github.com/libjohn/workshop_ggplot2)
+## Full introduction ⭐
 
-## Slides
+<iframe height="315" width="560" src="https://warpwire.duke.edu/w/v4gFAA/" frameborder="0" scrolling="0" allow="autoplay *; encrypted-media *; fullscreen *; picture-in-picture *;" allowfullscreen></iframe>
 
-From my [workshop on _Visualization with ggplot2_](//slides/index.html)  
-Adapated from Garrett Grolemund's _Master the Tidyverse_
+Full intro [code repository](https://github.com/amzoss/ggplot2-workshop)
 
-## Guide
+## Advanced
 
-I worked up a [guide that helps me grok ggplot2 affordances](guide.html)
+<iframe src="https://library.capture.duke.edu/Panopto/Pages/Embed.aspx?id=b41df32a-cfa3-4e8c-b374-aab600f18fc7&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" width=560 height=315 style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+Advanced ggplot [code repository](https://github.com/amzoss/adv-ggplot2-F19)
 
 ## ggplot2 documentation
 
 https://ggplot2.tidyverse.org
+
+## Other Resources  
+
+- [Visualization Basics](https://rstudio.cloud/learn/primers/1.1)  (Interactive primer)
+- [Visualization](https://rstudio.cloud/learn/primers/3)  (Interactive primer)
+- [Slide deck](https://ggplot.library.duke.edu/slides/index.html)
 
 ## Books and resources
 
@@ -37,11 +44,3 @@ https://ggplot2.tidyverse.org
 - [Data Visualization: A Practical Introduction.](https://socviz.co/lookatdata.html) Kieran Healy
 - [Data Visualization with R.](https://rkabacoff.github.io/datavis/) Rob Kabacoff
 - [Interactive web-based data visualization with R, plotly, and shiny.](https://plotly-r.com/) Carson Sievert
-
-## Interactive primer & practice exercises
-
-- [RStudio Primers on visualizing data](https://rstudio.cloud/learn/primers/3)
-- [Angela Zoss code exercises](https://github.com/amzoss/ggplot2-S20) 
- by [Angela Zoss](https://library.duke.edu/about/directory/staff/angela.zoss)  
-
-

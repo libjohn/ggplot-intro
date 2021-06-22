@@ -1,406 +1,2178 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 
 <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
 
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
 
-
-
-
-<title>guide.knit</title>
-
-<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="site_libs/plotly-binding-4.9.4/plotly.js"></script>
-<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
-<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
-<link href="site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
 
 <style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-</script>
-
-
-<style type="text/css">
-  p.abstract{
-    text-align: center;
-    font-weight: bold;
-  }
-  div.abstract{
-    margin: auto;
-    width: 90%;
-  }
-</style>
-
-
-
-<link rel="stylesheet" href="style/for_captions.css" type="text/css" />
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-pre code {
-  padding: 0;
-}
-</style>
-
-
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
-
-
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
 @media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+  <!--radix_placeholder_meta_tags-->
+  <title>ggplot2 Workshop: ggplot2 quick reference</title>
+
+
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"/>
+  <link rel="icon" type="image/png" href="libs-local/rfun_logo.png"/>
+
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="ggplot2 Workshop: ggplot2 quick reference"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:site_name" content="ggplot2 Workshop"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="ggplot2 Workshop: ggplot2 quick reference"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["ggplot2 quick reference"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  <!--radix_placeholder_navigation_in_header-->
+  <meta name="distill:offset" content=""/>
+
+  <script type="application/javascript">
+
+    window.headroom_prevent_pin = false;
+
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+
+      // initialize headroom for banner
+      var header = $('header').get(0);
+      var headerHeight = header.offsetHeight;
+      var headroom = new Headroom(header, {
+        tolerance: 5,
+        onPin : function() {
+          if (window.headroom_prevent_pin) {
+            window.headroom_prevent_pin = false;
+            headroom.unpin();
+          }
+        }
+      });
+      headroom.init();
+      if(window.location.hash)
+        headroom.unpin();
+      $(header).addClass('headroom--transition');
+
+      // offset scroll location for banner on hash change
+      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+      window.addEventListener("hashchange", function(event) {
+        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+      });
+
+      // responsive menu
+      $('.distill-site-header').each(function(i, val) {
+        var topnav = $(this);
+        var toggle = topnav.find('.nav-toggle');
+        toggle.on('click', function() {
+          topnav.toggleClass('responsive');
+        });
+      });
+
+      // nav dropdowns
+      $('.nav-dropbtn').click(function(e) {
+        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+        $(this).parent().siblings('.nav-dropdown')
+           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $("body").click(function(e){
+        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $(".nav-dropdown").click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+  <style type="text/css">
+
+  /* Theme (user-documented overrideables for nav appearance) */
+
+  .distill-site-nav {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #0F2E3D;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .distill-site-nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .distill-site-nav a:hover {
+    color: white;
+  }
+
+  @media print {
+    .distill-site-nav {
+      display: none;
+    }
+  }
+
+  .distill-site-header {
+
+  }
+
+  .distill-site-footer {
+
+  }
+
+
+  /* Site Header */
+
+  .distill-site-header {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+
+  .distill-site-header .nav-left {
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header .nav-left {
+      margin-left: 0;
+    }
+  }
+
+
+  .distill-site-header .nav-right {
+    float: right;
+    margin-right: 8px;
+  }
+
+  .distill-site-header a,
+  .distill-site-header .title {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+  }
+
+  .distill-site-header .title {
+    font-size: 18px;
+    min-width: 150px;
+  }
+
+  .distill-site-header .logo {
+    padding: 0;
+  }
+
+  .distill-site-header .logo img {
+    display: none;
+    max-height: 20px;
+    width: auto;
+    margin-bottom: -4px;
+  }
+
+  .distill-site-header .nav-image img {
+    max-height: 18px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: -3px;
+  }
+
+
+
+  @media screen and (min-width: 1000px) {
+    .distill-site-header .logo img {
+      display: inline-block;
+    }
+    .distill-site-header .nav-left {
+      margin-left: 20px;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 20px;
+    }
+    .distill-site-header .title {
+      padding-left: 12px;
+    }
+  }
+
+
+  .distill-site-header .nav-toggle {
+    display: none;
+  }
+
+  .nav-dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 16px 10px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    margin-top: 1px;
+    z-index: 2;
+  }
+
+  .nav-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-top: 2px;
+    white-space: nowrap;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .nav-dropdown-content hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-dropdown-active {
+    display: block;
+  }
+
+  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: black;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .nav-dropdown-content .nav-dropdown-header {
+    display: block;
+    padding: 5px 24px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #999999;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown:hover .nav-dropbtn {
+    color: white;
+  }
+
+  .nav-dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .nav-right .nav-dropdown-content {
+    margin-left: -45%;
+    right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+    .distill-site-header a.nav-toggle {
+      float: right;
+      display: block;
+    }
+    .distill-site-header .title {
+      margin-left: 0;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 0;
+    }
+    .distill-site-header {
+      overflow: hidden;
+    }
+    .nav-right .nav-dropdown-content {
+      margin-left: 0;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header.responsive {position: relative; min-height: 500px; }
+    .distill-site-header.responsive a.nav-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .distill-site-header.responsive a,
+    .distill-site-header.responsive .nav-dropdown {
+      display: block;
+      text-align: left;
+    }
+    .distill-site-header.responsive .nav-left,
+    .distill-site-header.responsive .nav-right {
+      width: 100%;
+    }
+    .distill-site-header.responsive .nav-dropdown {float: none;}
+    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  /* Site Footer */
+
+  .distill-site-footer {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 3;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Headroom */
+
+  d-title {
+    padding-top: 6rem;
+  }
+
+  @media print {
+    d-title {
+      padding-top: 4rem;
+    }
+  }
+
+  .headroom {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .headroom--transition {
+    transition: all .4s ease-in-out;
+  }
+
+  .headroom--unpinned {
+    top: -100px;
+  }
+
+  .headroom--pinned {
+    top: 0;
+  }
+
+  /* adjust viewport for navbar height */
+  /* helps vertically center bootstrap (non-distill) content */
+  .min-vh-100 {
+    min-height: calc(100vh - 100px) !important;
+  }
+
+  </style>
+
+  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+  <script type="application/javascript">
+
+  function getMeta(metaName) {
+    var metas = document.getElementsByTagName('meta');
+    for (let i = 0; i < metas.length; i++) {
+      if (metas[i].getAttribute('name') === metaName) {
+        return metas[i].getAttribute('content');
+      }
+    }
+    return '';
+  }
+
+  function offsetURL(url) {
+    var offset = getMeta('distill:offset');
+    return offset ? offset + '/' + url : url;
+  }
+
+  function createFuseIndex() {
+
+    // create fuse index
+    var options = {
+      keys: [
+        { name: 'title', weight: 20 },
+        { name: 'categories', weight: 15 },
+        { name: 'description', weight: 10 },
+        { name: 'contents', weight: 5 },
+      ],
+      ignoreLocation: true,
+      threshold: 0
+    };
+    var fuse = new window.Fuse([], options);
+
+    // fetch the main search.json
+    return fetch(offsetURL('search.json'))
+      .then(function(response) {
+        if (response.status == 200) {
+          return response.json().then(function(json) {
+            // index main articles
+            json.articles.forEach(function(article) {
+              fuse.add(article);
+            });
+            // download collections and index their articles
+            return Promise.all(json.collections.map(function(collection) {
+              return fetch(offsetURL(collection)).then(function(response) {
+                if (response.status === 200) {
+                  return response.json().then(function(articles) {
+                    articles.forEach(function(article) {
+                      fuse.add(article);
+                    });
+                  })
+                } else {
+                  return Promise.reject(
+                    new Error('Unexpected status from search index request: ' +
+                              response.status)
+                  );
+                }
+              });
+            })).then(function() {
+              return fuse;
+            });
+          });
+
+        } else {
+          return Promise.reject(
+            new Error('Unexpected status from search index request: ' +
+                        response.status)
+          );
+        }
+      });
+  }
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // get search element (bail if we don't have one)
+    var searchEl = window.document.getElementById('distill-search');
+    if (!searchEl)
+      return;
+
+    createFuseIndex()
+      .then(function(fuse) {
+
+        // make search box visible
+        searchEl.classList.remove('hidden');
+
+        // initialize autocomplete
+        var options = {
+          autoselect: true,
+          hint: false,
+          minLength: 2,
+        };
+        window.autocomplete(searchEl, options, [{
+          source: function(query, callback) {
+            const searchOptions = {
+              isCaseSensitive: false,
+              shouldSort: true,
+              minMatchCharLength: 2,
+              limit: 10,
+            };
+            var results = fuse.search(query, searchOptions);
+            callback(results
+              .map(function(result) { return result.item; })
+            );
+          },
+          templates: {
+            suggestion: function(suggestion) {
+              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+                : '';
+              var html = `
+                <div class="search-item">
+                  <h3>${suggestion.title}</h3>
+                  <div class="search-item-description">
+                    ${suggestion.description || ''}
+                  </div>
+                  <div class="search-item-preview">
+                    ${img}
+                  </div>
+                </div>
+              `;
+              return html;
+            }
+          }
+        }]).on('autocomplete:selected', function(event, suggestion) {
+          window.location.href = offsetURL(suggestion.path);
+        });
+        // remove inline display style on autocompleter (we want to
+        // manage responsive display via css)
+        $('.algolia-autocomplete').css("display", "");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+  });
+
+  </script>
+
+  <style type="text/css">
+
+  .nav-search {
+    font-size: x-small;
+  }
+
+  /* Algolioa Autocomplete */
+
+  .algolia-autocomplete {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: sub;
+    background-color: white;
+    color: black;
+    padding: 6px;
+    padding-top: 8px;
+    padding-bottom: 0;
+    border-radius: 6px;
+    border: 1px #0F2E3D solid;
+    width: 180px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-nav .algolia-autocomplete {
+      display: none;
+      visibility: hidden;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete {
+      display: inline-block;
+      visibility: visible;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+      margin-left: 0;
+      width: 400px;
+      max-height: 400px;
+    }
+  }
+
+  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+    width: 90%;
+    outline: none;
+    border: none;
+  }
+
+  .algolia-autocomplete .aa-hint {
+    color: #999;
+  }
+  .algolia-autocomplete .aa-dropdown-menu {
+    width: 550px;
+    max-height: 70vh;
+    overflow-x: visible;
+    overflow-y: scroll;
+    padding: 5px;
+    margin-top: 3px;
+    margin-left: -150px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #999;
+    border-top: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+    cursor: pointer;
+    padding: 5px 4px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+    border-bottom: none;
+    margin-bottom: 2px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+    overflow: hidden;
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+    font-size: 1rem;
+    margin-block-start: 0;
+    margin-block-end: 5px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+    display: inline-block;
+    overflow: hidden;
+    height: 2.8em;
+    width: 80%;
+    margin-right: 4%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+    display: inline-block;
+    width: 15%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+    height: 3em;
+    width: auto;
+    display: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+    display: initial;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    background-color: #eee;
+  }
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  </style>
+
+
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
+  <script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <script src="site_libs/plotly-binding-4.9.4/plotly.js"></script>
+  <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <link href="site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
 
 
 </head>
 
 <body>
 
+<!--radix_placeholder_front_matter-->
 
-<div class="container-fluid main-container">
+<script id="distill-front-matter" type="text/json">
+{"title":"ggplot2 quick reference","authors":[]}
+</script>
 
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo" href="https://rfun.library.duke.edu">
+<img src="libs-local/rfun_logo.png" alt="Logo"/>
+</a>
+<a href="index.html" class="title">Visualization with ggplot2</a>
+<a href="guide.html">Guide</a>
+<a href="slides/index.html">Slides</a>
+</div>
+<div class="nav-right">
+<a href="resources.html">Resources</a>
+<a href="https://github.com/libjohn/ggplot-intro">
+<i class="fa fa-github" aria-hidden="true"></i>
+</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+CDVS
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="https://rfun.library.duke.edu/">Rfun Home</a>
+<a href="https://library.duke.edu/data/">Center for Data &amp; Visualization Sciences</a>
 </div>
 </div>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
 
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Visualization with ggplot2</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="guide.html">Guide</a>
-</li>
-<li>
-  <a href="slides/index.html">Slides</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/libjohn/ggplot-intro">
-    <span class="fas fa-github"></span>
-     
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fas fa-home"></span>
-     
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="https://rfun.library.duke.edu/">Rfun Home</a>
-    </li>
-    <li>
-      <a href="https://library.duke.edu/data/">Center for Data &amp; Visualization Sciences</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div id="header">
-
-
-
+<div class="d-title">
+<h1>ggplot2 quick reference</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
 
 </div>
 
 
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#load-library-packages">Load library packages</a></li>
+<li><a href="#ggplot2-template-code">ggplot2 template code</a></li>
+<li><a href="#goal">Goal</a></li>
+<li><a href="#import-data">Import data</a></li>
+<li><a href="#steps-to-visualization">Steps to Visualization</a>
+<ul>
+<li><a href="#draw-the-base-layer">Draw the base layer</a></li>
+<li><a href="#map-the-aesthetics-to-variables-in-the-dataframe">Map the aesthetics to variables in the dataframe</a></li>
+<li><a href="#visualize-a-layer">Visualize a layer</a></li>
+<li><a href="#global-v-local-arguments">Global v local arguments</a></li>
+<li><a href="#mapping-v-setting">Mapping v Setting</a></li>
+</ul></li>
+<li><a href="#common-geom_-functions">Common geom_ functions</a>
+<ul>
+<li><a href="#boxplot">Boxplot</a></li>
+<li><a href="#line-graph">Line graph</a></li>
+<li><a href="#overplotting">Overplotting</a></li>
+<li><a href="#multiple-layers">Multiple layers</a></li>
+<li><a href="#goal-1">Goal</a></li>
+</ul></li>
+<li><a href="#arrange-order">Arrange order</a>
+<ul>
+<li><a href="#arranging-order-with-forcats">Arranging order with forcats</a></li>
+</ul></li>
+<li><a href="#facet-wrap">Facet wrap</a></li>
+<li><a href="#scales">Scales</a></li>
+<li><a href="#labels">Labels</a></li>
+<li><a href="#themes">Themes</a>
+<ul>
+<li><a href="#example-themes">Example themes</a></li>
+<li><a href="#theme_dark">theme_dark()</a></li>
+<li><a href="#theme_classic">theme_classic</a></li>
+<li><a href="#hbrthemes">hbrthemes</a></li>
+</ul></li>
+<li><a href="#combine-plots">Combine plots</a></li>
+<li><a href="#interactive-plots">Interactive plots</a></li>
+<li><a href="#annimate-plots">Annimate plots</a></li>
+<li><a href="#attribution">Attribution</a></li>
+</ul>
+</nav>
+</div>
+<div class="layout-chunk" data-layout="l-body">
 <p><img src="data:image/png;base64,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" alt="Rfun logo" style="position:absolute; top:0; right:0; padding:10px;"/></p>
+</div>
 <p> </p>
-<div id="load-library-packages" class="section level2">
-<h2>Load library packages</h2>
+<h2 id="load-library-packages">Load library packages</h2>
 <p>I only need <code>ggplot2</code> but I like to load <code>tidyverse</code><br />
 because it includes 8 complimentary packages, including <code>ggplot2</code>.</p>
-<pre class="r"><code># library(ggplot2)
-library(tidyverse)</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># library(ggplot2)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
 <p>Get more information from:</p>
 <ul>
 <li><a href="https://tidyverse.org" class="uri">https://tidyverse.org</a></li>
 <li><a href="https://ggplot2.tidyverse.org" class="uri">https://ggplot2.tidyverse.org</a></li>
 </ul>
-</div>
-<div id="ggplot2-template-code" class="section level2">
-<h2>ggplot2 template code</h2>
+<h2 id="ggplot2-template-code">ggplot2 template code</h2>
 <p>The ggplot2 template is used to identify the dataframe, identify the x and y axis, and define visualized layers</p>
 <blockquote>
 <p><code>ggplot(data = ---, mapping = aes(x = ---, y = ---)) + geom_----()</code></p>
@@ -410,62 +2182,85 @@ library(tidyverse)</code></pre>
 <blockquote>
 <p><code>dataframe %&gt;%  ggplot(aes(xvar, yvar)) + geom_----()</code></p>
 </blockquote>
-</div>
-<div id="goal" class="section level2">
-<h2>Goal</h2>
+<h2 id="goal">Goal</h2>
 <p>Visualize a scatter plot showing the relationship of mass to height for <em>Star Wars</em> characters in the <code>dplyr::starwars</code> dataframe, excluding the heaviest character. Indicate a linear regression line.</p>
-<p><img src="guide_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="guide_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
-<div id="import-data" class="section level2">
-<h2>Import data</h2>
+<h2 id="import-data">Import data</h2>
 <p>dplyr has an onboard dataset, <code>starwars</code></p>
-<pre class="r"><code>data(starwars)
-starwars</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["height"],"name":[2],"type":["int"],"align":["right"]},{"label":["mass"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hair_color"],"name":[4],"type":["chr"],"align":["left"]},{"label":["skin_color"],"name":[5],"type":["chr"],"align":["left"]},{"label":["eye_color"],"name":[6],"type":["chr"],"align":["left"]},{"label":["birth_year"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sex"],"name":[8],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[9],"type":["chr"],"align":["left"]},{"label":["homeworld"],"name":[10],"type":["chr"],"align":["left"]},{"label":["species"],"name":[11],"type":["chr"],"align":["left"]},{"label":["films"],"name":[12],"type":["list"],"align":["right"]},{"label":["vehicles"],"name":[13],"type":["list"],"align":["right"]},{"label":["starships"],"name":[14],"type":["list"],"align":["right"]}],"data":[{"1":"Luke Skywalker","2":"172","3":"77.0","4":"blond","5":"fair","6":"blue","7":"19.0","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [5]>","13":"<chr [2]>","14":"<chr [2]>"},{"1":"C-3PO","2":"167","3":"75.0","4":"NA","5":"gold","6":"yellow","7":"112.0","8":"none","9":"masculine","10":"Tatooine","11":"Droid","12":"<chr [6]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"R2-D2","2":"96","3":"32.0","4":"NA","5":"white, blue","6":"red","7":"33.0","8":"none","9":"masculine","10":"Naboo","11":"Droid","12":"<chr [7]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Darth Vader","2":"202","3":"136.0","4":"none","5":"white","6":"yellow","7":"41.9","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [4]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Leia Organa","2":"150","3":"49.0","4":"brown","5":"light","6":"brown","7":"19.0","8":"female","9":"feminine","10":"Alderaan","11":"Human","12":"<chr [5]>","13":"<chr [1]>","14":"<chr [0]>"},{"1":"Owen Lars","2":"178","3":"120.0","4":"brown, grey","5":"light","6":"blue","7":"52.0","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Beru Whitesun lars","2":"165","3":"75.0","4":"brown","5":"light","6":"blue","7":"47.0","8":"female","9":"feminine","10":"Tatooine","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"R5-D4","2":"97","3":"32.0","4":"NA","5":"white, red","6":"red","7":"NA","8":"none","9":"masculine","10":"Tatooine","11":"Droid","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Biggs Darklighter","2":"183","3":"84.0","4":"black","5":"light","6":"brown","7":"24.0","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Obi-Wan Kenobi","2":"182","3":"77.0","4":"auburn, white","5":"fair","6":"blue-gray","7":"57.0","8":"male","9":"masculine","10":"Stewjon","11":"Human","12":"<chr [6]>","13":"<chr [1]>","14":"<chr [5]>"},{"1":"Anakin Skywalker","2":"188","3":"84.0","4":"blond","5":"fair","6":"blue","7":"41.9","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [3]>","13":"<chr [2]>","14":"<chr [3]>"},{"1":"Wilhuff Tarkin","2":"180","3":"NA","4":"auburn, grey","5":"fair","6":"blue","7":"64.0","8":"male","9":"masculine","10":"Eriadu","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Chewbacca","2":"228","3":"112.0","4":"brown","5":"unknown","6":"blue","7":"200.0","8":"male","9":"masculine","10":"Kashyyyk","11":"Wookiee","12":"<chr [5]>","13":"<chr [1]>","14":"<chr [2]>"},{"1":"Han Solo","2":"180","3":"80.0","4":"brown","5":"fair","6":"brown","7":"29.0","8":"male","9":"masculine","10":"Corellia","11":"Human","12":"<chr [4]>","13":"<chr [0]>","14":"<chr [2]>"},{"1":"Greedo","2":"173","3":"74.0","4":"NA","5":"green","6":"black","7":"44.0","8":"male","9":"masculine","10":"Rodia","11":"Rodian","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Jabba Desilijic Tiure","2":"175","3":"1358.0","4":"NA","5":"green-tan, brown","6":"orange","7":"600.0","8":"hermaphroditic","9":"masculine","10":"Nal Hutta","11":"Hutt","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Wedge Antilles","2":"170","3":"77.0","4":"brown","5":"fair","6":"hazel","7":"21.0","8":"male","9":"masculine","10":"Corellia","11":"Human","12":"<chr [3]>","13":"<chr [1]>","14":"<chr [1]>"},{"1":"Jek Tono Porkins","2":"180","3":"110.0","4":"brown","5":"fair","6":"blue","7":"NA","8":"male","9":"masculine","10":"Bestine IV","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Yoda","2":"66","3":"17.0","4":"white","5":"green","6":"brown","7":"896.0","8":"male","9":"masculine","10":"NA","11":"Yoda's species","12":"<chr [5]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Palpatine","2":"170","3":"75.0","4":"grey","5":"pale","6":"yellow","7":"82.0","8":"male","9":"masculine","10":"Naboo","11":"Human","12":"<chr [5]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Boba Fett","2":"183","3":"78.2","4":"black","5":"fair","6":"brown","7":"31.5","8":"male","9":"masculine","10":"Kamino","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"IG-88","2":"200","3":"140.0","4":"none","5":"metal","6":"red","7":"15.0","8":"none","9":"masculine","10":"NA","11":"Droid","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Bossk","2":"190","3":"113.0","4":"none","5":"green","6":"red","7":"53.0","8":"male","9":"masculine","10":"Trandosha","11":"Trandoshan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Lando Calrissian","2":"177","3":"79.0","4":"black","5":"dark","6":"brown","7":"31.0","8":"male","9":"masculine","10":"Socorro","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Lobot","2":"175","3":"79.0","4":"none","5":"light","6":"blue","7":"37.0","8":"male","9":"masculine","10":"Bespin","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ackbar","2":"180","3":"83.0","4":"none","5":"brown mottle","6":"orange","7":"41.0","8":"male","9":"masculine","10":"Mon Cala","11":"Mon Calamari","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Mon Mothma","2":"150","3":"NA","4":"auburn","5":"fair","6":"blue","7":"48.0","8":"female","9":"feminine","10":"Chandrila","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Arvel Crynyd","2":"NA","3":"NA","4":"brown","5":"fair","6":"brown","7":"NA","8":"male","9":"masculine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Wicket Systri Warrick","2":"88","3":"20.0","4":"brown","5":"brown","6":"brown","7":"8.0","8":"male","9":"masculine","10":"Endor","11":"Ewok","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Nien Nunb","2":"160","3":"68.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"masculine","10":"Sullust","11":"Sullustan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Qui-Gon Jinn","2":"193","3":"89.0","4":"brown","5":"fair","6":"blue","7":"92.0","8":"male","9":"masculine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [1]>","14":"<chr [0]>"},{"1":"Nute Gunray","2":"191","3":"90.0","4":"none","5":"mottled green","6":"red","7":"NA","8":"male","9":"masculine","10":"Cato Neimoidia","11":"Neimodian","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Finis Valorum","2":"170","3":"NA","4":"blond","5":"fair","6":"blue","7":"91.0","8":"male","9":"masculine","10":"Coruscant","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Jar Jar Binks","2":"196","3":"66.0","4":"none","5":"orange","6":"orange","7":"52.0","8":"male","9":"masculine","10":"Naboo","11":"Gungan","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Roos Tarpals","2":"224","3":"82.0","4":"none","5":"grey","6":"orange","7":"NA","8":"male","9":"masculine","10":"Naboo","11":"Gungan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Rugor Nass","2":"206","3":"NA","4":"none","5":"green","6":"orange","7":"NA","8":"male","9":"masculine","10":"Naboo","11":"Gungan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ric Olié","2":"183","3":"NA","4":"brown","5":"fair","6":"blue","7":"NA","8":"NA","9":"NA","10":"Naboo","11":"NA","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Watto","2":"137","3":"NA","4":"black","5":"blue, grey","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Toydaria","11":"Toydarian","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Sebulba","2":"112","3":"40.0","4":"none","5":"grey, red","6":"orange","7":"NA","8":"male","9":"masculine","10":"Malastare","11":"Dug","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Quarsh Panaka","2":"183","3":"NA","4":"black","5":"dark","6":"brown","7":"62.0","8":"NA","9":"NA","10":"Naboo","11":"NA","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Shmi Skywalker","2":"163","3":"NA","4":"black","5":"fair","6":"brown","7":"72.0","8":"female","9":"feminine","10":"Tatooine","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Darth Maul","2":"175","3":"80.0","4":"none","5":"red","6":"yellow","7":"54.0","8":"male","9":"masculine","10":"Dathomir","11":"Zabrak","12":"<chr [1]>","13":"<chr [1]>","14":"<chr [1]>"},{"1":"Bib Fortuna","2":"180","3":"NA","4":"none","5":"pale","6":"pink","7":"NA","8":"male","9":"masculine","10":"Ryloth","11":"Twi'lek","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ayla Secura","2":"178","3":"55.0","4":"none","5":"blue","6":"hazel","7":"48.0","8":"female","9":"feminine","10":"Ryloth","11":"Twi'lek","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Dud Bolt","2":"94","3":"45.0","4":"none","5":"blue, grey","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Vulpter","11":"Vulptereen","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Gasgano","2":"122","3":"NA","4":"none","5":"white, blue","6":"black","7":"NA","8":"male","9":"masculine","10":"Troiken","11":"Xexto","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ben Quadinaros","2":"163","3":"65.0","4":"none","5":"grey, green, yellow","6":"orange","7":"NA","8":"male","9":"masculine","10":"Tund","11":"Toong","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Mace Windu","2":"188","3":"84.0","4":"none","5":"dark","6":"brown","7":"72.0","8":"male","9":"masculine","10":"Haruun Kal","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ki-Adi-Mundi","2":"198","3":"82.0","4":"white","5":"pale","6":"yellow","7":"92.0","8":"male","9":"masculine","10":"Cerea","11":"Cerean","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Kit Fisto","2":"196","3":"87.0","4":"none","5":"green","6":"black","7":"NA","8":"male","9":"masculine","10":"Glee Anselm","11":"Nautolan","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Eeth Koth","2":"171","3":"NA","4":"black","5":"brown","6":"brown","7":"NA","8":"male","9":"masculine","10":"Iridonia","11":"Zabrak","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Adi Gallia","2":"184","3":"50.0","4":"none","5":"dark","6":"blue","7":"NA","8":"female","9":"feminine","10":"Coruscant","11":"Tholothian","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Saesee Tiin","2":"188","3":"NA","4":"none","5":"pale","6":"orange","7":"NA","8":"male","9":"masculine","10":"Iktotch","11":"Iktotchi","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Yarael Poof","2":"264","3":"NA","4":"none","5":"white","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Quermia","11":"Quermian","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Plo Koon","2":"188","3":"80.0","4":"none","5":"orange","6":"black","7":"22.0","8":"male","9":"masculine","10":"Dorin","11":"Kel Dor","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Mas Amedda","2":"196","3":"NA","4":"none","5":"blue","6":"blue","7":"NA","8":"male","9":"masculine","10":"Champala","11":"Chagrian","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Gregar Typho","2":"185","3":"85.0","4":"black","5":"dark","6":"brown","7":"NA","8":"male","9":"masculine","10":"Naboo","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Cordé","2":"157","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"female","9":"feminine","10":"Naboo","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Cliegg Lars","2":"183","3":"NA","4":"brown","5":"fair","6":"blue","7":"82.0","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Poggle the Lesser","2":"183","3":"80.0","4":"none","5":"green","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Geonosis","11":"Geonosian","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Luminara Unduli","2":"170","3":"56.2","4":"black","5":"yellow","6":"blue","7":"58.0","8":"female","9":"feminine","10":"Mirial","11":"Mirialan","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Barriss Offee","2":"166","3":"50.0","4":"black","5":"yellow","6":"blue","7":"40.0","8":"female","9":"feminine","10":"Mirial","11":"Mirialan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Dormé","2":"165","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"female","9":"feminine","10":"Naboo","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Dooku","2":"193","3":"80.0","4":"white","5":"fair","6":"brown","7":"102.0","8":"male","9":"masculine","10":"Serenno","11":"Human","12":"<chr [2]>","13":"<chr [1]>","14":"<chr [0]>"},{"1":"Bail Prestor Organa","2":"191","3":"NA","4":"black","5":"tan","6":"brown","7":"67.0","8":"male","9":"masculine","10":"Alderaan","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Jango Fett","2":"183","3":"79.0","4":"black","5":"tan","6":"brown","7":"66.0","8":"male","9":"masculine","10":"Concord Dawn","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Zam Wesell","2":"168","3":"55.0","4":"blonde","5":"fair, green, yellow","6":"yellow","7":"NA","8":"female","9":"feminine","10":"Zolan","11":"Clawdite","12":"<chr [1]>","13":"<chr [1]>","14":"<chr [0]>"},{"1":"Dexter Jettster","2":"198","3":"102.0","4":"none","5":"brown","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Ojom","11":"Besalisk","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Lama Su","2":"229","3":"88.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"masculine","10":"Kamino","11":"Kaminoan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Taun We","2":"213","3":"NA","4":"none","5":"grey","6":"black","7":"NA","8":"female","9":"feminine","10":"Kamino","11":"Kaminoan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Jocasta Nu","2":"167","3":"NA","4":"white","5":"fair","6":"blue","7":"NA","8":"female","9":"feminine","10":"Coruscant","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ratts Tyerell","2":"79","3":"15.0","4":"none","5":"grey, blue","6":"unknown","7":"NA","8":"male","9":"masculine","10":"Aleen Minor","11":"Aleena","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"R4-P17","2":"96","3":"NA","4":"none","5":"silver, red","6":"red, blue","7":"NA","8":"none","9":"feminine","10":"NA","11":"Droid","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Wat Tambor","2":"193","3":"48.0","4":"none","5":"green, grey","6":"unknown","7":"NA","8":"male","9":"masculine","10":"Skako","11":"Skakoan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"San Hill","2":"191","3":"NA","4":"none","5":"grey","6":"gold","7":"NA","8":"male","9":"masculine","10":"Muunilinst","11":"Muun","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Shaak Ti","2":"178","3":"57.0","4":"none","5":"red, blue, white","6":"black","7":"NA","8":"female","9":"feminine","10":"Shili","11":"Togruta","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Grievous","2":"216","3":"159.0","4":"none","5":"brown, white","6":"green, yellow","7":"NA","8":"male","9":"masculine","10":"Kalee","11":"Kaleesh","12":"<chr [1]>","13":"<chr [1]>","14":"<chr [1]>"},{"1":"Tarfful","2":"234","3":"136.0","4":"brown","5":"brown","6":"blue","7":"NA","8":"male","9":"masculine","10":"Kashyyyk","11":"Wookiee","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Raymus Antilles","2":"188","3":"79.0","4":"brown","5":"light","6":"brown","7":"NA","8":"male","9":"masculine","10":"Alderaan","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Sly Moore","2":"178","3":"48.0","4":"none","5":"pale","6":"white","7":"NA","8":"NA","9":"NA","10":"Umbara","11":"NA","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Tion Medon","2":"206","3":"80.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"masculine","10":"Utapau","11":"Pau'an","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Finn","2":"NA","3":"NA","4":"black","5":"dark","6":"dark","7":"NA","8":"male","9":"masculine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Rey","2":"NA","3":"NA","4":"brown","5":"light","6":"hazel","7":"NA","8":"female","9":"feminine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Poe Dameron","2":"NA","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"male","9":"masculine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"BB8","2":"NA","3":"NA","4":"none","5":"none","6":"black","7":"NA","8":"none","9":"masculine","10":"NA","11":"Droid","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Captain Phasma","2":"NA","3":"NA","4":"unknown","5":"unknown","6":"unknown","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Padmé Amidala","2":"165","3":"45.0","4":"brown","5":"light","6":"brown","7":"46.0","8":"female","9":"feminine","10":"Naboo","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [3]>"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>starwars</span><span class='op'>)</span>
+<span class='va'>starwars</span>
+</code></pre>
 </div>
+<pre><code># A tibble: 87 x 14
+   name  height  mass hair_color skin_color eye_color birth_year sex  
+   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+ 1 Luke~    172    77 blond      fair       blue            19   male 
+ 2 C-3PO    167    75 &lt;NA&gt;       gold       yellow         112   none 
+ 3 R2-D2     96    32 &lt;NA&gt;       white, bl~ red             33   none 
+ 4 Dart~    202   136 none       white      yellow          41.9 male 
+ 5 Leia~    150    49 brown      light      brown           19   fema~
+ 6 Owen~    178   120 brown, gr~ light      blue            52   male 
+ 7 Beru~    165    75 brown      light      blue            47   fema~
+ 8 R5-D4     97    32 &lt;NA&gt;       white, red red             NA   none 
+ 9 Bigg~    183    84 black      light      brown           24   male 
+10 Obi-~    182    77 auburn, w~ fair       blue-gray       57   male 
+# ... with 77 more rows, and 6 more variables: gender &lt;chr&gt;,
+#   homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;</code></pre>
 </div>
-<div id="steps-to-visualization" class="section level2">
-<h2>Steps to Visualization</h2>
-<div id="draw-the-base-layer" class="section level3">
-<h3>Draw the base layer</h3>
+<h2 id="steps-to-visualization">Steps to Visualization</h2>
+<h3 id="draw-the-base-layer">Draw the base layer</h3>
 <p>This feels like, and looks like, you drew an empty box.</p>
-<pre class="r"><code>starwars %&gt;% 
-  ggplot() </code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
 <p><em>But wait, there’s more….</em></p>
-</div>
-<div id="map-the-aesthetics-to-variables-in-the-dataframe" class="section level3">
-<h3>Map the aesthetics to variables in the dataframe</h3>
+<h3 id="map-the-aesthetics-to-variables-in-the-dataframe">Map the aesthetics to variables in the dataframe</h3>
 <p>Still doesn’t look like much. You will initialize the plot scales and labels based on the values of the variables in the dataframe.</p>
-<pre class="r"><code>starwars %&gt;% 
-  filter(mass &lt; 500) %&gt;% 
-  ggplot(aes(height, mass))</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mass</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>height</span>, <span class='va'>mass</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
 <p>In the above, I subset the data, removing any <em>Star Wars</em> characters weighing more than 500 Kg – <code>dplyr::filter()</code>. Then I initialized the base layer with the <code>height</code> as the x axis and <code>mass</code> as the y axis. ggplot drew the scales for me.</p>
-</div>
-<div id="visualize-a-layer" class="section level3">
-<h3>Visualize a layer</h3>
+<h3 id="visualize-a-layer">Visualize a layer</h3>
 <p>Since I have two numeric variables, <code>height</code> and <code>mass</code>, I’ll start with a scatter plot. Scatter plots are generated by the <code>geom_point()</code> function.</p>
-<pre class="r"><code>starwars %&gt;% 
-  filter(mass &lt; 500) %&gt;% 
-  ggplot(aes(height, mass)) +
-  geom_point() </code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mass</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>height</span>, <span class='va'>mass</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> 
+</code></pre>
 </div>
-<div id="global-v-local-arguments" class="section level3">
-<h3>Global v local arguments</h3>
+<p><img src="guide_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<h3 id="global-v-local-arguments">Global v local arguments</h3>
 <p>So far, the <strong>aesthetics</strong> are <strong>mapped</strong> in the <code>aes()</code> function within the initial <code>ggplot</code> function. As such, these values are mapped globally and all layers are affected by this mapping. See the <code>aes()</code> function, above. Arguments can also be mapped locally, within a geom function layer, as as <code>geom_point(aes(height, mass))</code>.</p>
-<pre class="r"><code>starwars %&gt;% 
-  filter(mass &lt; 500) %&gt;% 
-  ggplot() +
-  geom_point(aes(height, mass)) </code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mass</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>height</span>, <span class='va'>mass</span><span class='op'>)</span><span class='op'>)</span> 
+</code></pre>
 </div>
-<div id="mapping-v-setting" class="section level3">
-<h3>Mapping v Setting</h3>
+<p><img src="guide_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<h3 id="mapping-v-setting">Mapping v Setting</h3>
 <p>Dataframe values can be <em>mapped</em> inside the aesthetic, <code>aes()</code>, to visualize variable dataframe values. Alternatively, data values can be <em>set</em> as an argument outside the <code>aes()</code> function but inside the geom_ function. This is done to affect a visual quality that is manually assigned, as opposed to being derived from variable data values.</p>
 <p>Aesthetic arguments include:</p>
 <ul>
@@ -480,25 +2275,32 @@ starwars</code></pre>
 <blockquote>
 <p>Mapping: <code>color</code> is <strong>mapped</strong> <em>inside</em> <code>aes()</code> function. In this case, <code>color = starwars$gender</code></p>
 </blockquote>
-<pre class="r"><code>starwars %&gt;% 
-  filter(mass &lt; 500) %&gt;% 
-  ggplot() +
-  # geom_point(mapping = aes(x = height, y = mass, color = gender))
-  geom_point(aes(height, mass, color = gender))</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mass</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='co'># geom_point(mapping = aes(x = height, y = mass, color = gender))</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>height</span>, <span class='va'>mass</span>, color <span class='op'>=</span> <span class='va'>gender</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
 <p>Notice the legend was drawn automatically, above, by mapping an aesthetic</p>
 <blockquote>
 <p>Setting: The <code>color</code> argument can be <strong>set</strong> outside the <code>aes()</code> function, but within the <code>geom_</code> function. In this case with <code>color = "goldenrod"</code></p>
 </blockquote>
-<pre class="r"><code>starwars %&gt;% 
-  filter(mass &lt; 500) %&gt;% 
-  ggplot() +
-  geom_point(aes(height, mass), color = &quot;goldenrod&quot;)</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mass</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>height</span>, <span class='va'>mass</span><span class='op'>)</span>, color <span class='op'>=</span> <span class='st'>"goldenrod"</span><span class='op'>)</span>
+</code></pre>
 </div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
-<div id="common-geom_-functions" class="section level2">
-<h2>Common geom_ functions</h2>
+<h2 id="common-geom_-functions">Common geom_ functions</h2>
 <table>
 <thead>
 <tr class="header">
@@ -513,7 +2315,7 @@ starwars</code></pre>
 </tr>
 <tr class="even">
 <td>Histogram:</td>
-<td><code>geom_hist()</code></td>
+<td><code>geom_histogram()</code></td>
 </tr>
 <tr class="odd">
 <td>Scatter plot:</td>
@@ -548,46 +2350,59 @@ starwars</code></pre>
 <blockquote>
 <p>A list of available geom_ functions, or layers, can be found in the help or on the website: <a href="https://ggplot2.tidyverse.org/reference/index.html#section-geoms" class="uri">https://ggplot2.tidyverse.org/reference/index.html#section-geoms</a></p>
 </blockquote>
-<div id="boxplot" class="section level3">
-<h3>Boxplot</h3>
-<pre class="r"><code>starwars %&gt;% 
-  mutate(species = fct_lump_min(species, 2)) %&gt;% 
-  ggplot(aes(species, height)) +
-  geom_boxplot() </code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<h3 id="boxplot">Boxplot</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>species <span class='op'>=</span> <span class='fu'>fct_lump_min</span><span class='op'>(</span><span class='va'>species</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>species</span>, <span class='va'>height</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_boxplot</span><span class='op'>(</span><span class='op'>)</span> 
+</code></pre>
 </div>
-<div id="line-graph" class="section level3">
-<h3>Line graph</h3>
-<pre class="r"><code>babynames::babynames %&gt;% 
-  filter(name == &quot;Watts&quot;) %&gt;% 
-  ggplot(aes(year, n)) +
-  # geom_point() +
-  geom_line()</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="guide_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
-<div id="overplotting" class="section level3">
-<h3>Overplotting</h3>
+<h3 id="line-graph">Line graph</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>babynames</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/babynames/man/babynames.html'>babynames</a></span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>name</span> <span class='op'>==</span> <span class='st'>"Watts"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='co'># geom_point() +</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+</div>
+<h3 id="overplotting">Overplotting</h3>
 <p>There are two simple approaches to visualizing overplotted data: <code>geom_jitter()</code> and decrease the opacity be setting the <code>alpha =</code> argument.</p>
 <ul>
 <li>Adjust <strong>opacity</strong>. The <code>alpha</code> argument within the geom function affects the opacity of the points. In this way, overplotted data will appear as darker points on the plot</li>
 </ul>
-<pre class="r"><code>starwars %&gt;% 
-  filter(mass &lt; 500) %&gt;% 
-  ggplot() +
-  geom_point(aes(height, mass), alpha = .3)</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mass</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>height</span>, <span class='va'>mass</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>.3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+</div>
 <ul>
 <li><strong>Jitter</strong> the data with <code>geom_jitter()</code></li>
 </ul>
 <p><code>geom_jitter</code> will not change the values of the data but it will offset data points, making it easier to perceive the overplotting.</p>
-<pre class="r"><code>starwars %&gt;% 
-  filter(mass &lt; 500) %&gt;% 
-  ggplot() +
-  geom_jitter(aes(height, mass))</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mass</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_jitter</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>height</span>, <span class='va'>mass</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
 </div>
-<div id="multiple-layers" class="section level3">
-<h3>Multiple layers</h3>
+<p><img src="guide_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<h3 id="multiple-layers">Multiple layers</h3>
 <p>Each layer, visualized by a geom_ function, can support local arguments and draw from the global settings. Below we use the <code>geom_line()</code> function, followed by the <code>geom_point()</code> function.</p>
 <pre><code>babynames %&gt;%
   ggplot(aes(year, prop)) +
@@ -608,124 +2423,167 @@ babynames %&gt;%
             nudge_y = .009) +
   labs(title = &quot;Name Popularity&quot;) + 
   theme(legend.position = &quot;none&quot;)</code></pre>
-</div>
-<div id="goal-1" class="section level3">
-<h3>Goal</h3>
+<h3 id="goal-1">Goal</h3>
 <p>Recall the goal mentioned in the beginning. We want a scatter plot and a regression line. The regression line is drawn with the <code>geom_smooth()</code> function.</p>
-<pre class="r"><code>starwars %&gt;% 
-  filter(mass &lt; 500) %&gt;% 
-  ggplot(aes(height, mass)) +
-  geom_point() +
-  geom_smooth(method = lm, se = FALSE)</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>mass</span> <span class='op'>&lt;</span> <span class='fl'>500</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>height</span>, <span class='va'>mass</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='va'>lm</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
 </div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
-<div id="arrange-order" class="section level2">
-<h2>Arrange order</h2>
+<h2 id="arrange-order">Arrange order</h2>
 <p>Categorical values are most easily ordered with the <code>forcats</code> library. Part of the Tidyverse, the <a href="https://forcats.tidyverse.org/">forcats</a> package is used to transform string data as a factor data type. Data types in R can be simple distinctions useful in efficient computation, such as calculating numeric outcomes versus manipulating character data (i.e. string or text data). R data types are rich and sometimes complex. Staying simple, text data consisting of categories, may be efficiently handled as a factor data type. For example, eye colors can be categorized. Brown, blue, and green are nominal categorical values for the factor variable <code>eye_color</code>. Among other things, treating <code>eye_color</code> as a factor data type enables visually ordering categorical values by frequency.</p>
-<div id="before-arranging-order" class="section level4">
-<h4>Before arranging order</h4>
-<pre class="r"><code>msleep %&gt;% 
-  ggplot(aes(vore)) +
-  geom_bar()</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<h4 id="before-arranging-order">Before arranging order</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>msleep</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>vore</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
 </div>
-<div id="arranging-order-with-forcats" class="section level3">
-<h3>Arranging order with forcats</h3>
+<p><img src="guide_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+</div>
+<h3 id="arranging-order-with-forcats">Arranging order with forcats</h3>
 <p>Change the order of the bars by the frequency of observations using <code>forcats::fct_infreq()</code></p>
-<pre class="r"><code>msleep %&gt;% 
-  ggplot(aes(fct_infreq(vore))) +
-  geom_bar() </code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>msleep</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='fu'>fct_infreq</span><span class='op'>(</span><span class='va'>vore</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+</div>
 <p>Notice below, we use the <code>fill =</code> argument to set the color of an individual bar. In the scatter plot examples, above, we used the <code>color =</code> argument. In many <code>geoms_</code> you can use both <code>color</code> and <code>fill</code> arguments. How do these arguments differ? Where can you look to find out more about <code>fill</code> and <code>color</code>?</p>
-<pre class="r"><code>starwars %&gt;% 
-  ggplot(aes(fct_rev(fct_infreq(eye_color)))) +
-  geom_bar(fill = &quot;grey70&quot;) +
-  geom_bar(data = starwars %&gt;% filter(eye_color == &quot;orange&quot;), fill = &quot;darkorange&quot;) +
-  coord_flip()</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>starwars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='fu'>fct_rev</span><span class='op'>(</span><span class='fu'>fct_infreq</span><span class='op'>(</span><span class='va'>eye_color</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"grey70"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_bar</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>starwars</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>eye_color</span> <span class='op'>==</span> <span class='st'>"orange"</span><span class='op'>)</span>, fill <span class='op'>=</span> <span class='st'>"darkorange"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>coord_flip</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
 </div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
 </div>
-<div id="facet-wrap" class="section level2">
-<h2>Facet wrap</h2>
+<h2 id="facet-wrap">Facet wrap</h2>
 <p>Faceting is great way to make subplots of the same dataframe. See both <code>facet_wrap()</code> and <code>facet_grid()</code></p>
-<pre class="r"><code>mpg %&gt;% 
-  ggplot(aes(displ, hwy)) +
-  geom_point() +
-  facet_wrap(~ class)</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mpg</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>displ</span>, <span class='va'>hwy</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span> <span class='va'>class</span><span class='op'>)</span>
+</code></pre>
 </div>
-<div id="scales" class="section level2">
-<h2>Scales</h2>
+<p><img src="guide_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
+</div>
+<h2 id="scales">Scales</h2>
 <p>Scales are used to affect the visual qualities of the data. I’ll introduce scales to visualize discrete categories by associating each discrete value with a specific color. <a href="https://ggplot2.tidyverse.org/reference/index.html#section-scales">Read more about scales</a>.</p>
 <p>Viridis scales apply color palettes to continuous, discrete, or binned data. For discrete data we can use the <code>scale_fill_viridis_d()</code> function.</p>
 <blockquote>
 <p>By using one the <code>scale_fill_</code> functions, we are able to affect the variable values associated in the <code>fill = conservation</code> argument.</p>
 </blockquote>
-<pre class="r"><code>msleep %&gt;% 
-  ggplot(aes(fct_infreq(vore), sleep_total)) +
-  geom_col(aes(fill = conservation)) +
-  scale_fill_viridis_d(na.value = &quot;grey80&quot;)</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>msleep</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='fu'>fct_infreq</span><span class='op'>(</span><span class='va'>vore</span><span class='op'>)</span>, <span class='va'>sleep_total</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_col</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>conservation</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_viridis_d</span><span class='op'>(</span>na.value <span class='op'>=</span> <span class='st'>"grey80"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+</div>
 <p>The color brewer palette is similar but has a wider array of palettes to choose from. Below we use <code>scale_fill_brewer()</code> and a default <em>qualitative</em> color palette by setting the <code>type =</code> argument to <em>qual</em> (for qualitative). Alternatively, or additionally, we could assign a <code>palette =</code> argument to choose a particular ColorBrewer palette, such as choosing the “Dark2” palette with the argument <code>palette = "Dark2"</code></p>
-<pre class="r"><code>msleep %&gt;% 
-  ggplot(aes(fct_infreq(vore), sleep_total)) +
-  geom_col(aes(fill = conservation)) +
-  scale_fill_brewer(type = &quot;qual&quot;, na.value = &quot;grey80&quot;) </code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>msleep</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='fu'>fct_infreq</span><span class='op'>(</span><span class='va'>vore</span><span class='op'>)</span>, <span class='va'>sleep_total</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_col</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>conservation</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_brewer</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"qual"</span>, na.value <span class='op'>=</span> <span class='st'>"grey80"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
+</div>
 <p>Sometimes a manual scale is preferred. Below we use <code>scale_fill_manual()</code> to associate a defined set of color names with my <code>fill = conservation</code> argument</p>
-<pre class="r"><code>mycolors &lt;- c(&quot;firebrick&quot;, &quot;forestgreen&quot;, &quot;navy&quot;, &quot;darkorange&quot;, 
-               &quot;goldenrod&quot;, &quot;sienna&quot;)
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mycolors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"firebrick"</span>, <span class='st'>"forestgreen"</span>, <span class='st'>"navy"</span>, <span class='st'>"darkorange"</span>, 
+               <span class='st'>"goldenrod"</span>, <span class='st'>"sienna"</span><span class='op'>)</span>
 
-msleep %&gt;% 
-  ggplot(aes(fct_infreq(vore), sleep_total)) +
-  geom_col(aes(fill = conservation)) +
-  scale_fill_manual(values = mycolors, na.value = &quot;grey80&quot;) </code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<span class='va'>msleep</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='fu'>fct_infreq</span><span class='op'>(</span><span class='va'>vore</span><span class='op'>)</span>, <span class='va'>sleep_total</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_col</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>conservation</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>mycolors</span>, na.value <span class='op'>=</span> <span class='st'>"grey80"</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+</div>
 <p>To find available colors: Google search “R color names”, or specific to ColorBrewer….</p>
-<pre class="r"><code>#display.brewer.pal(7,&quot;Dark2&quot;)
-RColorBrewer::display.brewer.all()</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#display.brewer.pal(7,"Dark2")</span>
+<span class='fu'>RColorBrewer</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html'>display.brewer.all</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
+</div>
 <p>Scales are used to manipulate the visual properties of the data. Beyond using scales to modify colors, another example is logarithmic scales to account for data skew. In this way you can clarify the data pattern. For example, using the <code>ChickWeight</code> dataset, we visualize the weights of the chicks over time. Hint: You can visualize the data skew with a histogram, <code>geom_histogram()</code>.</p>
-<pre class="r"><code>data(&quot;ChickWeight&quot;)
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"ChickWeight"</span><span class='op'>)</span>
 
-ChickWeight %&gt;% 
-  ggplot(aes(Time, weight, color = Diet)) +
-  geom_line(aes(group = Chick))</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<span class='va'>ChickWeight</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Time</span>, <span class='va'>weight</span>, color <span class='op'>=</span> <span class='va'>Diet</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>group <span class='op'>=</span> <span class='va'>Chick</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
+</div>
 <p>Using <code>scale_y_log10</code> we can alter the scale to highlight a more understandable data pattern</p>
-<pre class="r"><code>chicken_plot &lt;- ChickWeight %&gt;% 
-  ggplot(aes(Time, weight, color = Diet)) +
-  geom_line(aes(group = Chick)) +
-  scale_y_log10()
-chicken_plot</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>chicken_plot</span> <span class='op'>&lt;-</span> <span class='va'>ChickWeight</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Time</span>, <span class='va'>weight</span>, color <span class='op'>=</span> <span class='va'>Diet</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_line</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>group <span class='op'>=</span> <span class='va'>Chick</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_log10</span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>chicken_plot</span>
+</code></pre>
 </div>
-<div id="labels" class="section level2">
-<h2>Labels</h2>
+<p><img src="guide_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
+</div>
+<h2 id="labels">Labels</h2>
 <p>The <code>labs()</code> function is specialized scales function, used to apply labels. For example, use the <code>labs()</code> function to add a title, subtitle, legend title, modify axis labels, and set a caption. See more on <a href="https://ggplot2.tidyverse.org/reference/index.html#section-scales">scales</a>.</p>
-<pre class="r"><code>plot_sleep &lt;- msleep %&gt;% 
-  mutate(vore = case_when(
-    vore == &quot;herbi&quot; ~ &quot;Herbivore&quot;,
-    vore == &quot;omni&quot;  ~ &quot;Omnivore&quot;,
-    vore == &quot;carni&quot; ~ &quot;Carnivore&quot;,
-    vore == &quot;insecti&quot; ~ &quot;Insectivore&quot;
-  ))  %&gt;%
-  ggplot(aes(fct_infreq(vore), sleep_total)) +
-  geom_col(aes(fill = conservation)) +
-  scale_fill_brewer(type = &quot;qual&quot;, na.value = &quot;grey80&quot;) +
-  labs(title = &quot;Animal sleep times&quot;, 
-       subtitle = &quot;A practice dataset&quot;,
-       fill = &quot;Conservation\nType&quot;,
-       x = &quot;&quot;,
-       y = &quot;Sleep time in hours&quot;,
-       caption = &quot;Source: ggplot::msleep&quot;)
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_sleep</span> <span class='op'>&lt;-</span> <span class='va'>msleep</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>vore <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span>
+    <span class='va'>vore</span> <span class='op'>==</span> <span class='st'>"herbi"</span> <span class='op'>~</span> <span class='st'>"Herbivore"</span>,
+    <span class='va'>vore</span> <span class='op'>==</span> <span class='st'>"omni"</span>  <span class='op'>~</span> <span class='st'>"Omnivore"</span>,
+    <span class='va'>vore</span> <span class='op'>==</span> <span class='st'>"carni"</span> <span class='op'>~</span> <span class='st'>"Carnivore"</span>,
+    <span class='va'>vore</span> <span class='op'>==</span> <span class='st'>"insecti"</span> <span class='op'>~</span> <span class='st'>"Insectivore"</span>
+  <span class='op'>)</span><span class='op'>)</span>  <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='fu'>fct_infreq</span><span class='op'>(</span><span class='va'>vore</span><span class='op'>)</span>, <span class='va'>sleep_total</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_col</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='va'>conservation</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_brewer</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"qual"</span>, na.value <span class='op'>=</span> <span class='st'>"grey80"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Animal sleep times"</span>, 
+       subtitle <span class='op'>=</span> <span class='st'>"A practice dataset"</span>,
+       fill <span class='op'>=</span> <span class='st'>"Conservation\nType"</span>,
+       x <span class='op'>=</span> <span class='st'>""</span>,
+       y <span class='op'>=</span> <span class='st'>"Sleep time in hours"</span>,
+       caption <span class='op'>=</span> <span class='st'>"Source: ggplot::msleep"</span><span class='op'>)</span>
 
-plot_sleep</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<span class='va'>plot_sleep</span>
+</code></pre>
 </div>
-<div id="themes" class="section level2">
-<h2>Themes</h2>
+<p><img src="guide_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+</div>
+<h2 id="themes">Themes</h2>
 <p>Themes are used to manipulate the stylistic characteristics of the non-data components of your plot, such as font faces, text sizes, and grid lines. <strong>ProTip:</strong> quickly manipulate a single plot with preset themes such as <code>theme_dark</code>, or use a specialized theme extension such as <code>theme_ipsum</code> from the <code>hrbrthemes</code> package.</p>
 <ul>
 <li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="uri">https://ggplot2.tidyverse.org/reference/ggtheme.html</a></p>
@@ -736,160 +2594,102 @@ plot_sleep</code></pre>
 <li><p><a href="https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/" class="uri">https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/</a></p></li>
 </ul>
 <p>See more on <a href="https://ggplot2.tidyverse.org/reference/index.html#section-themes">themes</a></p>
-<div id="example-themes" class="section level3">
-<h3>Example themes</h3>
+<h3 id="example-themes">Example themes</h3>
+<div class="layout-chunk" data-layout="l-body">
 <p><img src="https://r4ds.had.co.nz/images/visualization-themes.png" alt="ggplot2 themes"/><div class="captxt">Image source:  from R for Data Science by Grolemund &amp; Wickham</div></p>
 </div>
-<div id="theme_dark" class="section level3">
-<h3>theme_dark()</h3>
-<pre class="r"><code>plot_sleep +
-  theme_dark()</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<h3 id="theme_dark">theme_dark()</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_sleep</span> <span class='op'>+</span>
+  <span class='fu'>theme_dark</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
 </div>
-<div id="theme_classic" class="section level3">
-<h3>theme_classic</h3>
-<pre class="r"><code>plot_sleep +
-  theme_classic()</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="guide_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
 </div>
-<div id="hbrthemes" class="section level3">
-<h3>hbrthemes</h3>
+<h3 id="theme_classic">theme_classic</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_sleep</span> <span class='op'>+</span>
+  <span class='fu'>theme_classic</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
+</div>
+<h3 id="hbrthemes">hbrthemes</h3>
 <p><a href="https://cinc.rud.is/web/packages/hrbrthemes/" class="uri">https://cinc.rud.is/web/packages/hrbrthemes/</a></p>
-<pre class="r"><code>plot_sleep +
-  hrbrthemes::theme_ipsum(grid = &quot;Y&quot;) +
-  hrbrthemes::scale_fill_ipsum(na.value = &quot;grey80&quot;,
-                               labels = c(&quot;Critical&quot;, &quot;Domesticated&quot;, 
-                                          &quot;Endangered&quot;, &quot;Least Concern&quot;, 
-                                          &quot;Threatened&quot;, &quot;Vulnerable&quot;)) +
-  theme(plot.title.position = &quot;plot&quot;)</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_sleep</span> <span class='op'>+</span>
+  <span class='fu'>hrbrthemes</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/hrbrthemes/man/theme_ipsum.html'>theme_ipsum</a></span><span class='op'>(</span>grid <span class='op'>=</span> <span class='st'>"Y"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>hrbrthemes</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/hrbrthemes/man/scale_ipsum.html'>scale_fill_ipsum</a></span><span class='op'>(</span>na.value <span class='op'>=</span> <span class='st'>"grey80"</span>,
+                               labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Critical"</span>, <span class='st'>"Domesticated"</span>, 
+                                          <span class='st'>"Endangered"</span>, <span class='st'>"Least Concern"</span>, 
+                                          <span class='st'>"Threatened"</span>, <span class='st'>"Vulnerable"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>plot.title.position <span class='op'>=</span> <span class='st'>"plot"</span><span class='op'>)</span>
+</code></pre>
 </div>
+<p><img src="guide_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
 </div>
-<div id="combine-plots" class="section level2">
-<h2>Combine plots</h2>
+<h2 id="combine-plots">Combine plots</h2>
 <p>The <code>patchwork</code> package makes it “ridiculously simple to combine separate ggplot objects into the same graphic.” The <code>/</code>will separate plots vertically. The <code>|</code> will separate plots horizontally. See more about <a href="https://patchwork.data-imaginist.com/">patchwork</a></p>
 <blockquote>
 <p>Try also: (plot_sleep | chicken_plot)</p>
 </blockquote>
-<pre class="r"><code># install.packages(&quot;devtools&quot;)
-# devtools::install_github(&quot;thomasp85/patchwork&quot;)
-# https://patchwork.data-imaginist.com/
-library(patchwork)
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># install.packages("devtools")</span>
+<span class='co'># devtools::install_github("thomasp85/patchwork")</span>
+<span class='co'># https://patchwork.data-imaginist.com/</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span>
 
-(plot_sleep / chicken_plot)</code></pre>
-<p><img src="guide_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<span class='op'>(</span><span class='va'>plot_sleep</span> <span class='op'>/</span> <span class='va'>chicken_plot</span><span class='op'>)</span>
+</code></pre>
 </div>
-<div id="interactive-plots" class="section level2">
-<h2>Interactive plots</h2>
+<p><img src="guide_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
+</div>
+<h2 id="interactive-plots">Interactive plots</h2>
 <p>Use the <code>ggplotly</code> function will transform your static ggplot object into an interactive plot. This interactive plot can be used in dashboards and web presentations.</p>
 <p>See more at the <a href="https://plotly.com/ggplot2/">Plotly ggplot2 Library</a> page, and the <a href="https://plotly-r.com/"><em>Interactive web-based data visualization with R, plotly, and shiny</em></a> book.</p>
-<pre class="r"><code>library(plotly)
-ggplotly(plot_sleep)</code></pre>
-<div id="htmlwidget-6d315693e432186dcea5" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6d315693e432186dcea5">{"x":{"data":[{"orientation":"v","width":[0.9,0.9],"base":[302.4,194.5],"x":[1,3],"y":[1.90000000000003,2.69999999999999],"text":["fct_infreq(vore): Herbivore<br />sleep_total:  1.9<br />conservation: cd","fct_infreq(vore): Carnivore<br />sleep_total:  2.7<br />conservation: cd"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(127,201,127,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"cd","legendgroup":"cd","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[258.3,171.9,262.3,271.7,284.2,287.1,182,290.2,298.6,209.4],"x":[1,3,1,1,1,1,3,1,1,2],"y":[4,10.1,9.39999999999998,12.5,2.90000000000003,3.09999999999997,12.5,8.40000000000003,3.79999999999995,9.09999999999999],"text":["fct_infreq(vore): Herbivore<br />sleep_total:  4.0<br />conservation: domesticated","fct_infreq(vore): Carnivore<br />sleep_total: 10.1<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  9.4<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total: 12.5<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  2.9<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  3.1<br />conservation: domesticated","fct_infreq(vore): Carnivore<br />sleep_total: 12.5<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  8.4<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  3.8<br />conservation: domesticated","fct_infreq(vore): Omnivore<br />sleep_total:  9.1<br />conservation: domesticated"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(190,174,212,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"domesticated","legendgroup":"domesticated","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[240.1,244,156.1,56.6],"x":[1,1,3,4],"y":[3.90000000000001,14.3,15.8,18.1],"text":["fct_infreq(vore): Herbivore<br />sleep_total:  3.9<br />conservation: en","fct_infreq(vore): Herbivore<br />sleep_total: 14.3<br />conservation: en","fct_infreq(vore): Carnivore<br />sleep_total: 15.8<br />conservation: en","fct_infreq(vore): Insectivore<br />sleep_total: 18.1<br />conservation: en"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(253,192,134,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"en","legendgroup":"en","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[86.5,115.1,139,142,130,140,150.3,98.6,147.3,159.4,28.5,177.4,187.5,116,152.6,122.2,158.9,173.1,141.6,55.6,198.4,65.9,180.8,48.2,193.8,210.4,224.2],"x":[3,2,1,1,2,2,2,3,1,2,4,2,2,3,1,3,1,1,3,5,2,5,1,4,1,1,1],"y":[12.1,14.9,3,5.30000000000001,10,10.3,9.09999999999999,17.4,5.29999999999998,18,19.7,10.1,10.9,6.2,6.30000000000001,19.4,14.2,7.70000000000002,14.5,10.3,11,5.39999999999999,13,8.4,16.6,13.8,15.9],"text":["fct_infreq(vore): Carnivore<br />sleep_total: 12.1<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 14.9<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  3.0<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  5.3<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 10.0<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 10.3<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total:  9.1<br />conservation: lc","fct_infreq(vore): Carnivore<br />sleep_total: 17.4<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  5.3<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 18.0<br />conservation: lc","fct_infreq(vore): Insectivore<br />sleep_total: 19.7<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 10.1<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 10.9<br />conservation: lc","fct_infreq(vore): Carnivore<br />sleep_total:  6.2<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  6.3<br />conservation: lc","fct_infreq(vore): Carnivore<br />sleep_total: 19.4<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 14.2<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  7.7<br />conservation: lc","fct_infreq(vore): Carnivore<br />sleep_total: 14.5<br />conservation: lc","fct_infreq(vore): NA<br />sleep_total: 10.3<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 11.0<br />conservation: lc","fct_infreq(vore): NA<br />sleep_total:  5.4<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 13.0<br />conservation: lc","fct_infreq(vore): Insectivore<br />sleep_total:  8.4<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 16.6<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 13.8<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 15.9<br />conservation: lc"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(255,255,153,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"lc","legendgroup":"lc","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[97.5,111.9,124.4,76.1],"x":[1,1,1,3],"y":[14.4,12.5,14.6,10.4],"text":["fct_infreq(vore): Herbivore<br />sleep_total: 14.4<br />conservation: nt","fct_infreq(vore): Herbivore<br />sleep_total: 12.5<br />conservation: nt","fct_infreq(vore): Herbivore<br />sleep_total: 14.6<br />conservation: nt","fct_infreq(vore): Carnivore<br />sleep_total: 10.4<br />conservation: nt"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(56,108,176,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"nt","legendgroup":"nt","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[44.8,80.3,89.8,53.5,67,70.5,93.1],"x":[3,1,1,3,3,3,1],"y":[8.7,9.5,3.30000000000001,13.5,3.5,5.59999999999999,4.39999999999999],"text":["fct_infreq(vore): Carnivore<br />sleep_total:  8.7<br />conservation: vu","fct_infreq(vore): Herbivore<br />sleep_total:  9.5<br />conservation: vu","fct_infreq(vore): Herbivore<br />sleep_total:  3.3<br />conservation: vu","fct_infreq(vore): Carnivore<br />sleep_total: 13.5<br />conservation: vu","fct_infreq(vore): Carnivore<br />sleep_total:  3.5<br />conservation: vu","fct_infreq(vore): Carnivore<br />sleep_total:  5.6<br />conservation: vu","fct_infreq(vore): Herbivore<br />sleep_total:  4.4<br />conservation: vu"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(240,2,127,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"vu","legendgroup":"vu","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[0,0,0,17,14.4,25.3,35.1,43.1,29.3,0,0,53.2,62.9,7,18.5,42.1,72.3,81,53.2,32.2,42.8,19.9,64.5,90.6,106.2,11,16.2,22.5,35],"x":[2,1,5,2,1,2,2,2,1,4,3,2,2,5,5,1,2,2,1,5,5,4,1,2,2,3,3,3,3],"y":[17,14.4,7,8.3,14.9,9.8,8,10.1,12.8,19.9,11,9.7,9.4,11.5,13.7,11.1,8.7,9.59999999999999,11.3,10.6,12.8,8.6,15.8,15.6,8.89999999999999,5.2,6.3,12.5,9.8],"text":["fct_infreq(vore): Omnivore<br />sleep_total: 17.0<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 14.4<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total:  7.0<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  8.3<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 14.9<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  9.8<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  8.0<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total: 10.1<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 12.8<br />conservation: NA","fct_infreq(vore): Insectivore<br />sleep_total: 19.9<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total: 11.0<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  9.7<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  9.4<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total: 11.5<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total: 13.7<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 11.1<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  8.7<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  9.6<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 11.3<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total: 10.6<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total: 12.8<br />conservation: NA","fct_infreq(vore): Insectivore<br />sleep_total:  8.6<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 15.8<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total: 15.6<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  8.9<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total:  5.2<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total:  6.3<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total: 12.5<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total:  9.8<br />conservation: NA"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(204,204,204,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"NA","legendgroup":"NA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":25.5707762557078,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Animal sleep times","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,5.6],"tickmode":"array","ticktext":["Herbivore","Omnivore","Carnivore","Insectivore"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Herbivore","Omnivore","Carnivore","Insectivore"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-15.215,319.515],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,100,200,300],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Sleep time in hours","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.96751968503937},"annotations":[{"text":"Conservation<br />Type","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"205c4821e25":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"205c4821e25","visdat":{"205c4821e25":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://plotly-r.com'>plotly</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://docs.ropensci.org/plotly/reference/ggplotly.html'>ggplotly</a></span><span class='op'>(</span><span class='va'>plot_sleep</span><span class='op'>)</span>
+</code></pre>
 </div>
-<div id="annimate-plots" class="section level2">
-<h2>Annimate plots</h2>
+<div id="htmlwidget-779a5bebce1236e5f720" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-779a5bebce1236e5f720">{"x":{"data":[{"orientation":"v","width":[0.9,0.9],"base":[302.4,194.5],"x":[1,3],"y":[1.90000000000003,2.69999999999999],"text":["fct_infreq(vore): Herbivore<br />sleep_total:  1.9<br />conservation: cd","fct_infreq(vore): Carnivore<br />sleep_total:  2.7<br />conservation: cd"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(127,201,127,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"cd","legendgroup":"cd","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[258.3,171.9,262.3,271.7,284.2,287.1,182,290.2,298.6,209.4],"x":[1,3,1,1,1,1,3,1,1,2],"y":[4,10.1,9.39999999999998,12.5,2.90000000000003,3.09999999999997,12.5,8.40000000000003,3.79999999999995,9.09999999999999],"text":["fct_infreq(vore): Herbivore<br />sleep_total:  4.0<br />conservation: domesticated","fct_infreq(vore): Carnivore<br />sleep_total: 10.1<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  9.4<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total: 12.5<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  2.9<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  3.1<br />conservation: domesticated","fct_infreq(vore): Carnivore<br />sleep_total: 12.5<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  8.4<br />conservation: domesticated","fct_infreq(vore): Herbivore<br />sleep_total:  3.8<br />conservation: domesticated","fct_infreq(vore): Omnivore<br />sleep_total:  9.1<br />conservation: domesticated"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(190,174,212,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"domesticated","legendgroup":"domesticated","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[240.1,244,156.1,56.6],"x":[1,1,3,4],"y":[3.90000000000001,14.3,15.8,18.1],"text":["fct_infreq(vore): Herbivore<br />sleep_total:  3.9<br />conservation: en","fct_infreq(vore): Herbivore<br />sleep_total: 14.3<br />conservation: en","fct_infreq(vore): Carnivore<br />sleep_total: 15.8<br />conservation: en","fct_infreq(vore): Insectivore<br />sleep_total: 18.1<br />conservation: en"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(253,192,134,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"en","legendgroup":"en","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[86.5,115.1,139,142,130,140,150.3,98.6,147.3,159.4,28.5,177.4,187.5,116,152.6,122.2,158.9,173.1,141.6,55.6,198.4,65.9,180.8,48.2,193.8,210.4,224.2],"x":[3,2,1,1,2,2,2,3,1,2,4,2,2,3,1,3,1,1,3,5,2,5,1,4,1,1,1],"y":[12.1,14.9,3,5.30000000000001,10,10.3,9.09999999999999,17.4,5.29999999999998,18,19.7,10.1,10.9,6.2,6.30000000000001,19.4,14.2,7.70000000000002,14.5,10.3,11,5.39999999999999,13,8.4,16.6,13.8,15.9],"text":["fct_infreq(vore): Carnivore<br />sleep_total: 12.1<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 14.9<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  3.0<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  5.3<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 10.0<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 10.3<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total:  9.1<br />conservation: lc","fct_infreq(vore): Carnivore<br />sleep_total: 17.4<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  5.3<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 18.0<br />conservation: lc","fct_infreq(vore): Insectivore<br />sleep_total: 19.7<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 10.1<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 10.9<br />conservation: lc","fct_infreq(vore): Carnivore<br />sleep_total:  6.2<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  6.3<br />conservation: lc","fct_infreq(vore): Carnivore<br />sleep_total: 19.4<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 14.2<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total:  7.7<br />conservation: lc","fct_infreq(vore): Carnivore<br />sleep_total: 14.5<br />conservation: lc","fct_infreq(vore): NA<br />sleep_total: 10.3<br />conservation: lc","fct_infreq(vore): Omnivore<br />sleep_total: 11.0<br />conservation: lc","fct_infreq(vore): NA<br />sleep_total:  5.4<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 13.0<br />conservation: lc","fct_infreq(vore): Insectivore<br />sleep_total:  8.4<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 16.6<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 13.8<br />conservation: lc","fct_infreq(vore): Herbivore<br />sleep_total: 15.9<br />conservation: lc"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(255,255,153,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"lc","legendgroup":"lc","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[97.5,111.9,124.4,76.1],"x":[1,1,1,3],"y":[14.4,12.5,14.6,10.4],"text":["fct_infreq(vore): Herbivore<br />sleep_total: 14.4<br />conservation: nt","fct_infreq(vore): Herbivore<br />sleep_total: 12.5<br />conservation: nt","fct_infreq(vore): Herbivore<br />sleep_total: 14.6<br />conservation: nt","fct_infreq(vore): Carnivore<br />sleep_total: 10.4<br />conservation: nt"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(56,108,176,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"nt","legendgroup":"nt","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[44.8,80.3,89.8,53.5,67,70.5,93.1],"x":[3,1,1,3,3,3,1],"y":[8.7,9.5,3.30000000000001,13.5,3.5,5.59999999999999,4.39999999999999],"text":["fct_infreq(vore): Carnivore<br />sleep_total:  8.7<br />conservation: vu","fct_infreq(vore): Herbivore<br />sleep_total:  9.5<br />conservation: vu","fct_infreq(vore): Herbivore<br />sleep_total:  3.3<br />conservation: vu","fct_infreq(vore): Carnivore<br />sleep_total: 13.5<br />conservation: vu","fct_infreq(vore): Carnivore<br />sleep_total:  3.5<br />conservation: vu","fct_infreq(vore): Carnivore<br />sleep_total:  5.6<br />conservation: vu","fct_infreq(vore): Herbivore<br />sleep_total:  4.4<br />conservation: vu"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(240,2,127,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"vu","legendgroup":"vu","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"base":[0,0,0,17,14.4,25.3,35.1,43.1,29.3,0,0,53.2,62.9,7,18.5,42.1,72.3,81,53.2,32.2,42.8,19.9,64.5,90.6,106.2,11,16.2,22.5,35],"x":[2,1,5,2,1,2,2,2,1,4,3,2,2,5,5,1,2,2,1,5,5,4,1,2,2,3,3,3,3],"y":[17,14.4,7,8.3,14.9,9.8,8,10.1,12.8,19.9,11,9.7,9.4,11.5,13.7,11.1,8.7,9.59999999999999,11.3,10.6,12.8,8.6,15.8,15.6,8.89999999999999,5.2,6.3,12.5,9.8],"text":["fct_infreq(vore): Omnivore<br />sleep_total: 17.0<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 14.4<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total:  7.0<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  8.3<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 14.9<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  9.8<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  8.0<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total: 10.1<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 12.8<br />conservation: NA","fct_infreq(vore): Insectivore<br />sleep_total: 19.9<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total: 11.0<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  9.7<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  9.4<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total: 11.5<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total: 13.7<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 11.1<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  8.7<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  9.6<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 11.3<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total: 10.6<br />conservation: NA","fct_infreq(vore): NA<br />sleep_total: 12.8<br />conservation: NA","fct_infreq(vore): Insectivore<br />sleep_total:  8.6<br />conservation: NA","fct_infreq(vore): Herbivore<br />sleep_total: 15.8<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total: 15.6<br />conservation: NA","fct_infreq(vore): Omnivore<br />sleep_total:  8.9<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total:  5.2<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total:  6.3<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total: 12.5<br />conservation: NA","fct_infreq(vore): Carnivore<br />sleep_total:  9.8<br />conservation: NA"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(204,204,204,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"NA","legendgroup":"NA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":45.4063926940639,"r":7.30593607305936,"b":27.2146118721461,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Animal sleep times","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,5.6],"tickmode":"array","ticktext":["Herbivore","Omnivore","Carnivore","Insectivore"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Herbivore","Omnivore","Carnivore","Insectivore"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-15.215,319.515],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,100,200,300],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Sleep time in hours","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.959399606299213},"annotations":[{"text":"Conservation<br />Type","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"52f02c836d02":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"52f02c836d02","visdat":{"52f02c836d02":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<h2 id="annimate-plots">Annimate plots</h2>
 <p>Use the <code>gganimate</code> package to bring your plot to life through the wonders of animation. Learn more at the resource page for <a href="https://gganimate.com/">gganimate</a></p>
 <p>For Example:</p>
+<div class="layout-chunk" data-layout="l-body">
 <p><img src="images/gganmimate_example.gif" alt="gganmimate example"/><div class="captxt">Image source:  https://gganimate.com/index.html#yet-another-example</div></p>
 </div>
-<div id="reinforce-your-learning" class="section level2">
-<h2>Reinforce your learning</h2>
-<p>On your own…</p>
-<p>Interactive Exercises from <a href="https://rstudio.cloud/learn/primers/3">RStudio Primers – Visualization</a></p>
-<p><a href="https://github.com/amzoss/ggplot2-S20">Angela Zoss code exercises</a></p>
-</div>
-<div id="resources" class="section level2">
-<h2>Resources</h2>
-<p><a href="https://introds.org/slides/w4_d1-effective-dataviz/w4_d1-effective-dataviz.html#26">Designing effective visualizations</a> by Dr. Mine Çetinkaya-Rundel - <em>Introduction to Data Science</em> <a href="https://introds.org" class="uri">https://introds.org</a></p>
-<div id="books" class="section level3">
-<h3>books</h3>
-<p><a href="https://ggplot2-book.org/">ggplot2: Elegant Graphics for Data Analysis.</a> Hadley Wickham</p>
-<p><a href="https://socviz.co/lookatdata.html">Data Visualization: A Practical Introduction.</a> Kieran Healy</p>
-<p><a href="https://rkabacoff.github.io/datavis/">Data Visualization with R.</a> Rob Kabacoff</p>
-<p><a href="https://plotly-r.com/">Interactive web-based data visualization with R, plotly, and shiny.</a> Carson Sievert</p>
-</div>
+<h2 id="attribution">Attribution</h2>
+<p>Adapted in whole or in part based on the <a href="https://github.com/rstudio/master-the-tidyverse/blob/master/pdfs/01-Visualize-Data.pdf">Visualize Data with ggplot2</a> slides by Garrett Grolemund at RStudio. CC BY Garrett Grolemund, RStudio</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
 </div>
 
-<p></p>
-<hr>
-
-<i class="fab fa-creative-commons fa-2x"></i><i class="fab fa-creative-commons-by fa-2x"></i><i class="fab fa-creative-commons-nc fa-2x"></i>
-<br><a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC</a><br>
-<a href="https://johnlittle.info/">John R Little</a> | <a href="https://library.duke.edu/data/">Duke University Libraries</a>
-
-
-</div>
+<div class="d-appendix">
 </div>
 
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+<h3 id="updates-and-corrections">Corrections</h3>
+<p>If you see mistakes or want to suggest changes, please <a href="https://github.com/libjohn/ggplot-intro/issues/new">create an issue</a> on the source repository.</p>
+<h3 id="reuse">Reuse</h3>
+<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. Source code is available at <a href="https://github.com/libjohn/ggplot-intro">https://github.com/libjohn/ggplot-intro</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
 </div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
 
 </body>
+
 </html>

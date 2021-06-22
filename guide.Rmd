@@ -1,11 +1,8 @@
 ---
-abstract: "A very quick overview of visualizing data with ggplot2.<p/>"
+title: "ggplot2 quick reference"
 output: 
-  html_document: 
+  distill::distill_article: 
     toc: yes
-    toc_float: yes
-    df_print: paged
-    css: style/for_captions.css
 ---
 
 ```{r, echo=FALSE}
@@ -164,7 +161,7 @@ starwars %>%
 Type         | Geom
 -------------|--------------------------
 Bar graph:	 |  `geom_bar()` `geom_col()`
-Histogram:	 | `geom_hist()`
+Histogram:	 | `geom_histogram()`
 Scatter plot:|	`geom_point()` `geom_jitter()`
 Line graph:  | `geom_line()`
 Box plot:	   | `geom_boxplot()`
@@ -494,29 +491,11 @@ div(class="captxt", "Image source:  https://gganimate.com/index.html#yet-another
 ```
 
 
-## Reinforce your learning 
-
-On your own...
-
-Interactive Exercises from [RStudio Primers -- Visualization](https://rstudio.cloud/learn/primers/3)
-
-[Angela Zoss code exercises](https://github.com/amzoss/ggplot2-S20) 
 
 
-## Resources
+## Attribution
 
-[Designing effective visualizations](https://introds.org/slides/w4_d1-effective-dataviz/w4_d1-effective-dataviz.html#26) by Dr. Mine Çetinkaya-Rundel - _Introduction to Data Science_ https://introds.org
-
-### books
-
-[ggplot2: Elegant Graphics for Data Analysis.](https://ggplot2-book.org/) Hadley Wickham
-
-[Data Visualization: A Practical Introduction.](https://socviz.co/lookatdata.html) Kieran Healy
-
-[Data Visualization with R.](https://rkabacoff.github.io/datavis/) Rob Kabacoff
-
-[Interactive web-based data visualization with R, plotly, and shiny.](https://plotly-r.com/) Carson Sievert
-
+Adapted in whole or in part based on the [Visualize Data with ggplot2](https://github.com/rstudio/master-the-tidyverse/blob/master/pdfs/01-Visualize-Data.pdf) slides by Garrett Grolemund at RStudio.  CC BY Garrett Grolemund, RStudio
 
 
 

@@ -1,25 +1,29 @@
-name: "ggplot2 Workshop"
+title: "ggplot2 Workshop"
+favicon: libs-local/rfun_logo.png
+base_url: https://rfun.library.duke.edu/ggplot
+repository_url: https://github.com/libjohn/ggplot-intro
+description: "| Tips, code, and video instruction on visualization with ggplot2"
+output_dir: "_site"
+creative_commons: CC BY-NC
 navbar:
+  logo:
+    image: libs-local/rfun_logo.png
+    href: https://rfun.library.duke.edu
   title: "Visualization with ggplot2"
   left:
-    - text: "Home"
-      href: index.html
     - text: "Guide"
       href: guide.html
     - text: "Slides"
       href: slides/index.html
   right:
+  - text: "Resources"
+    href: "resources.html"
   - icon: fa-github
     href: https://github.com/libjohn/ggplot-intro         
-  - icon: fa-home
+  - text: CDVS
     menu:
       - text: "Rfun Home"
         href: "https://rfun.library.duke.edu/"
       - text: "Center for Data & Visualization Sciences"
         href: https://library.duke.edu/data/   
-output:
-  html_document:
-    theme: flatly
-    includes:
-      after_body: footer.html
-new_session: true
+output: distill::distill_article

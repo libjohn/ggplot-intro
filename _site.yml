@@ -11,7 +11,7 @@ navbar:
     href: https://rfun.library.duke.edu
   title: "Visualization with ggplot2"
   left:
-    - text: "Guide"
+    - text: "Quick reference guide"
       href: guide.html
     - text: "Slides"
       href: slides/index.html

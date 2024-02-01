@@ -39,3 +39,4 @@ rsconnect/
 
 # Local Netlify folder
 .netlify
+/.quarto/

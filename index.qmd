@@ -1,0 +1,5 @@
+---
+title: "Forward to intro2r"
+---
+
+This site has been retired.  You should be automatically forwarded to [https://intro2r.library.duke.edu/viz.html](https://intro2r.library.duke.edu/viz.html)

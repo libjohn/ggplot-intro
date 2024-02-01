@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 62cd0e63-bf54-4c47-a9b9-39f2252fc85a
+      url: 'https://ggplot.library.duke.edu'

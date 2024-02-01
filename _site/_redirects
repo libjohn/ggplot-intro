@@ -1,4 +1,5 @@
 # redirects from older version of website 
+https://ggplot.library.duke.edu/* https://intro2r.library.duke.edu/viz.html 301!
+/index.html                  https://intro2r.library.duke.edu/viz.html
 /guide.html                   https://intro2r.library.duke.edu/viz.html
 /index.html                   https://intro2r.library.duke.edu/viz.html
-*                             https://intro2r.library.duke.edu/viz.html

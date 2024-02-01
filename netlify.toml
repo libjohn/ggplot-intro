@@ -8,3 +8,9 @@
   to = "https://ggplot.library.duke.edu/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "https://intro2r.library.duke.edu/viz.html"
+  status = 301
+  force = true

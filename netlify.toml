@@ -10,7 +10,7 @@
   force = true
 
 [[redirects]]
-  from = "/*"
+  from = "https://ggplot.library.duke.edu/*"
   to = "https://intro2r.library.duke.edu/viz.html"
   status = 301
   force = true
